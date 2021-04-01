@@ -1,0 +1,7 @@
+https://sweetalert2.github.io/#download
+
+
+https://www.jsdelivr.com/package/npm/sweetalert2
+
+Dir ejemplos--->
+https://parzibyte.me/blog/2019/12/16/sweet-alert-2-tutorial-ejemplos/#Obtener_libreria_Sweet_Alert_2
