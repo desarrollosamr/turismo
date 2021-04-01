@@ -1,5 +1,5 @@
 BEGIN
-Declare nuevo int default 0;
+
 Declare r int default 0;
 Declare i int default 0;
 Declare n int default 0;
