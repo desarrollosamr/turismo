@@ -69,7 +69,7 @@ $nrorgtos = count($rtemporal);
 
 		.namehotel {
 			padding: 0px 15px !important;
-			color: red;
+			color: #ce11d4;
 			font-size: larger;
 		}
 
