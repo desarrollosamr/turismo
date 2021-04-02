@@ -1,3 +1,4 @@
 <?php
-  $con = mysqli_connect("localhost","root","","basehotel1") or die(mysql_error());
+ /* cambia la base de datos */ 
+  $con = mysqli_connect("localhost","root","","basehotel1") or die(mysqli_error());
 ?>
