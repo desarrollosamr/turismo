@@ -26,21 +26,7 @@ $idciudad = $_REQUEST['bmuni'];
 $tnegocio = $_REQUEST['bcate'];
 $rtemporal = tbOrganizacionData::getdatahotelbasica($_REQUEST['bmuni'], $_REQUEST['bcate'], $tbltkn, $tbltmp);
 $nrorgtos = count($rtemporal);
-/*
-	echo "(lstHotel)1era time->".(time()+1)."<br>";
-	echo "(lstHotel)2era time->".(time()-1)."<br>";	
-	echo "(lstHotel)Valores generados"."<br>";
-	echo "(lstHotel)tbltkn->".$tbltkn."<br>";
-	echo "(lstHotel)tbltmp->".$tbltmp."<br>";	
-  echo "Antes de llamar a tbOrganizacionData->"."<br>";		
-	print_r($_REQUEST);
 
-	echo "<br>";	
-	echo "Voy a listar los hoteles existente....$nrorgtos ";
-	echo "<pre>";	
-  print_r($rtemporal);
-	echo "</pre>";
- //die();	 */
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +69,7 @@ $nrorgtos = count($rtemporal);
 
 		.namehotel {
 			padding: 0px 15px !important;
-			color: blue;
+			color: red;
 			font-size: larger;
 		}
 
