@@ -180,28 +180,7 @@ public static function getbuscaHotel($idciu, $idcat)
 
   } 
 
-  public static function getbuscaHoteles($idciu, $tk, $tbusca)
-  { 
-  /* trae las organizaciones que estan en una ciudad */
-  // $tbusca = "hotel";
-  // $tk     =  date("H:i:s").mt_rand().date("H:i:s");
-  $ss="";
-  //   $ss = "Call genera00($idciu, '$tk', '$tbusca')";
-  $ss = "Select a.* from tbtiponegociotr a where a.idtipotr in (select mid(b.idtipotr, locate(a.idtipotr,
-                  b.idtipotr,length(a.idtipotr)), length(a.idtipotr)) from tborganizacion b where idciudad = $idciu) 
-                  order by a.idTipoTr";  
-  $cnx= dbcon();    
-  $rr =mysqli_query($cnx,$ss);
-  $array1 = array();
-  $cn = 0;
-  //$array1= mysqli_fetch_array($rr);
-  while($rx = mysqli_fetch_array($rr)){
-    $array1[$cn] = $rx;
-    $cn++;
-  }
-  return $array1;
-  }
-  public static function deletebuscaHoteles($tk, $tbusca)
+   public static function deletebuscaHoteles($tk, $tbusca)
   { 
     $ss="";
     $ss = "delete from tbtmpgeneral where tokenuser=  '$tk' and tipoprocess = '$tbusca';";
@@ -217,52 +196,13 @@ public static function getbuscaHotel($idciu, $idcat)
     return $array1;
   } 
 
-
-  public static function getdatatemporal($idciu, $tipo, $token, $tbtemp)
-  { 
-  /* trae las organizaciones que estan en una ciudad */
-  // $tbusca = "hotel";
-  // $tk     =  date("H:i:s").mt_rand().date("H:i:s");
-  $ss="";
-  $ss = "Call xxTablas($idciu, $tipo, '$token', '$tbtemp')";
-  echo "(tbOrganizacionData.php)->getdatatemporal"."<br>";  
-  /*
-        echo "<br>";
-        echo "(tbOrganizacionData.php)->getdatatemporal"."<br>";
-        echo "idciu->".$idciu."<br>";
-        echo "tipo->".$tipo."<br>";        
-        echo "token->".$token."<br>";        
-        echo "tbtemp->".$tbtemp."<br>";        
-        echo "ss->".$ss."<br>";           
-        echo "<pre>";
-        print_r($_REQUEST);
-        //print_r($r);
-        echo "</pre>";
-   */
-  $cnx= dbcon();    
-  $rr =mysqli_query($cnx,$ss);
-  $array1 = array();
-  $cn = 0;
-  // echo "tbOrganizacionData"."<br>";
-//  print_r($rr);
-//  exit;  
-
-  //$array1= mysqli_fetch_array($rr);
-
-  while($rx = mysqli_fetch_array($rr)){
-    $array1[$cn] = $rx;
-    $cn++;
-  }
-  return $array1;
-  
-  // return $rr;
-  } 
- public static function getpaginartmp($tbltmp, $inicio, $pag, $rgtro)
-  {
-    $str="";
-    $str = "select * from ".$tbltmp." limit " . $pag . "," . $rgtro;
+ public static function getpaginartmp($idciu,$tipo, $pag, $rgtro)
+ {
+   $ss = "Select a.idorg, a.nitdni, a.nomborg, a.dirborg, a.desgeneral, a.rutaimagen from tborganizacion a, tbrelorgtiponegocio b
+                         where a.idorg = b.idOrg  and b.idtipotr = $tipo and b.status = 1 and a.idciudad = $idciu
+                         limit " . $pag . "," . $rgtro;
     $cnx = dbcon();
-    $rr = mysqli_query($cnx, $str);
+    $rr = mysqli_query($cnx, $ss);
     $array1 = array();
     $cn = 0;
     while($rx = mysqli_fetch_array($rr)){
@@ -270,18 +210,46 @@ public static function getbuscaHotel($idciu, $idcat)
       $cn++;
     }
     return $array1;
-  }  // fin del Metodo(getAllpaginate)  
-  public static function cuentatmp($tbltkn, $criterio)// metodo contar registros para paginar
+  }  // fin del Metodo(getpaginartmp)    
+    
+  public static function getbuscarHoteles($idciu, $tk, $tbusca)
   {
-    $str="";
-   // ojo cambiar las xxx  por el campo que se requiere
-    $str = "select count(*) as n from " . $tbltkn;
+    /* trae las organizaciones que estan en una ciudad */
+    $ss = "";
+    //   $ss = "Call genera00($idciu, '$tk', '$tbusca')";
+    $ss = "Select a.* from tbtiponegociotr a where a.idtipotr in 
+      (select distinct b.idtipotr from tbrelorgtiponegocio b , tborganizacion c  where b.idorg = c.idorg and c.idciudad = $idciu) 
+      and a.status = 1 order by a.idTipoTr";       
     $cnx = dbcon();
-    $rr = mysqli_query($cnx, $str);
-    $query = Executor::doit($str);
-    $r = $query[0]->fetch_array();
-    return $r['n'];
-   } // fin del metodo  countTbOrganizacion  
+    $rr = mysqli_query($cnx, $ss);
+    $array1 = array();
+    $cn = 0;
+    //$array1= mysqli_fetch_array($rr);
+    while ($rx = mysqli_fetch_array($rr)) {
+      $array1[$cn] = $rx;
+      $cn++;
+    }
+    return $array1;
+  }
+
+  public static function getdatahotelbasica($idciu, $tipo, $token, $tbtemp)
+  {
+    /* trae las organizaciones que estan en una ciudad */
+    $ss = "Select a.idorg, a.nitdni, a.nomborg, a.dirborg, a.desgeneral, a.rutaimagen 
+        from tborganizacion a, tbrelorgtiponegocio b
+          where a.idorg = b.idOrg  and b.idtipotr = $tipo and b.status = 1 and a.idciudad = $idciu
+    ";   
+    $cnx = dbcon();
+    $rr = mysqli_query($cnx, $ss);
+    $array1 = array();
+    $cn = 0;
+    while ($rx = mysqli_fetch_array($rr)) {
+      $array1[$cn] = $rx;
+      $cn++;
+    }
+    return $array1;
+  }
+ 
    
 }
 ?>

@@ -1,8 +1,8 @@
 <?php
 //  include_once '../modelos/especialidadmedicosData.php';
-  function generaTabla($tbltkn, $cantidad, $criterio, $pagina, $registro)
+  function generaTabla($idciudad, $tnegocio, $pagina, $registro)
     {
-      $array = tbOrganizacionData::getpaginartmp($tbltkn, $criterio, (($pagina - 1) * $registro), $registro);
+      $array = tbOrganizacionData::getpaginartmp($idciudad, $tnegocio, (($pagina - 1) * $registro), $registro);
       $str = '';
       $i =0;
       foreach ($array as $rs) {
@@ -22,25 +22,12 @@
           <div class="col-sm-7 col-md-7 col-lg-7   quitar">           
             <div class="row"> 
               <div class="col-sm-12 col-md-12 col-lg-12 quitar">  
-                <a href="datosHotel.php" target="_blank"><span style="color: blue;">'.$rs['nomborg'].'</span></a>
+                <a href="datosHotel.php" target="_blank"><span class="namehotel">'.$rs['nomborg']. '</span></a>
               </div>
-            </div> ';              
-              $xx = $rs['nro'];
-              $d ="";
-              $n = 0;
-              $sigue=1;
-              while ( $n <$xx and $sigue == 1) {
-                $n++;
-                $campo= "des".$n;
-                if( !empty(trim($rs[$campo]))){
-                  $str .= '
-                  <div class="row"> 
-                    <div class="col-sm-12 col-md-12 col-lg-12 quitar" style="text-align: justify;">
-                      '.$rs['nro']."-".$n."-".$rs[$campo].'
-                    </div> 
-                  </div>';
-                } else  $sigue=0;
-              }  
+              <div class="col-sm-12 col-md-12 col-lg-12 styledato">  
+                ' . $rs['desgeneral'] . '
+              </div>
+            </div> '; 
          $ss='   
             <div class="row"> 
               <div class="col-sm-4 col-md-4 col-lg-4 quitar"> 
@@ -252,9 +239,10 @@
   $x = isset($_REQUEST['x']) ? $_REQUEST['x'] : '';
   */
   $strtabla="";
-  $cantidad = tbOrganizacionData::cuentatmp($tbltkn, $criterio); // Contar cuantos hay
+  $cantidad = $nrorgtos;
+//  $cantidad = tbOrganizacionData::cuentatmp($tbltkn, $criterio); // Contar cuantos hay
   if ($cantidad > 0) {
-    /*
+  /*
       echo "listado.php->".$cantidad."<br>";
       echo "<pre>";
       print_r($_REQUEST);
@@ -262,7 +250,8 @@
       echo "</pre>";
       die();
     */
-    $strTabla = generaTabla($tbltkn, $cantidad, $criterio, $pagina, $registro);
+    $strTabla =generaTabla($idciudad, $tnegocio, $pagina, $registro);
+    //$strTabla = generaTabla($tbltkn, $cantidad, $criterio, $pagina, $registro);
   } else {
     if ($criterio <> "") {
       $str = "select * from tbmedicos where doctorName like '%" . $criterio . "%' or id like '%" . $criterio . "%' order by name desc limit " . $pagina . "," . $registro;

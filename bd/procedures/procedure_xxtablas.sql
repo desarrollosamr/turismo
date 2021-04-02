@@ -1,5 +1,4 @@
 BEGIN
-
 Declare r int default 0;
 Declare i int default 0;
 Declare n int default 0;
@@ -12,7 +11,7 @@ Declare lsCampos varchar(150) default '';
 Declare strcampo text default '';
 
 -- se crea la tabla temporal(en memoria)
-set @strsql = concat("CREATE TEMPORARY TABLE `",otro,"` (c int not null auto_increment primary key, idorg      int, \n                                                         nitdni     varchar(15), \n                                                         nomborg    varchar(60), \n                                                         rutaimagen varchar(100), \n                                                         iddescripciontr varchar(250),\n                                                         nro int);");
+set @strsql = concat("CREATE TEMPORARY TABLE `",otro,"` (c int not null auto_increment primary key, \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t idorg      int, \n                                                         nitdni     varchar(15), \n                                                         nomborg    varchar(60), \n                                                         rutaimagen varchar(100), \n                                                         iddescripciontr varchar(250),\n                                                         nro int);");
  PREPARE consulta FROM @strsql;
  EXECUTE consulta; 
 

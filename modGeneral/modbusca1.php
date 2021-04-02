@@ -541,9 +541,6 @@
         success : function(r){  
           console.log(r);
           if (r!="") $(location).attr('href','lstHotel.php');
-
-
-
         },
         error : function(error){ 
           console.log(error);

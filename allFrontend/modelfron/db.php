@@ -3,11 +3,11 @@ function dbcon(){
   	$host = 'localhost';
 	$usr = 'root';
 	$psw = '';
-	$db = 'basehotel1';
+	$db = 'bdbasehotel1';
 	$conection = @mysqli_connect($host,$usr,$psw,$db);
 	//$cnx = @mysqli_connect($host,$usr,$psw,$db);
 	if(!$conection){
-		echo "Error en la conexión,(basehotel1) no existe....";
+		echo "Error en la conexión,(bdbasehotel1) no existe....";
 		die();
 		exit();
 	}

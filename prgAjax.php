@@ -38,7 +38,8 @@
         $xx = mt_rand(1,2);
     		$tbusca = "hotel";
     		$tk     =  ($xx==1) ? date("H:i:s").mt_rand() : mt_rand().date("H:i:s") ;
-        $r=tbOrganizacionData::getbuscaHoteles($_REQUEST['datprocess'], $tk, $tbusca);
+        //$r=tbOrganizacionData::getbuscaHoteles($_REQUEST['datprocess'], $tk, $tbusca);
+        $r=tbOrganizacionData::getbuscarHoteles($_REQUEST['datprocess'], $tk, $tbusca);				
         /*
         echo "(prgAjax)->businesstype";
 				echo "<pre>";
