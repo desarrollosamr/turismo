@@ -1,6 +1,6 @@
 <?php
 //  include_once '../modelos/especialidadmedicosData.php';
-  function generaTabla($idciudad, $tnegocio, $pagina, $registro)
+  function generaTabla($idciudad, $tnegocio, $pagina, $registro, $cantidad)
     {
       $array = tbOrganizacionData::getpaginartmp($idciudad, $tnegocio, (($pagina - 1) * $registro), $registro);
       $str = '';
@@ -10,24 +10,25 @@
         $str .= '
         <div class="row stylerow">
           <div class="col-sm-3 col-md-3 col-lg-3   quitar"> 
-             <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot33.jpg" alt="" style="height: 100% !important;"/>
+             <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot3100.jpg" alt="" style="height: 100% !important;"/>
           </div>
           <div class="col-sm-2 col-md-2 col-lg-2   quitar">   
             <div class="dos">
-              <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot33.jpg" alt=""/>  
-              <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot33.jpg" alt=""/>  
+              <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot3100.jpg" alt=""/>  
+              <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot3100.jpg" alt=""/>  
             </div>
           </div>
           <!-- <div class="clearfix"></div> -->
           <div class="col-sm-7 col-md-7 col-lg-7   quitar">           
             <div class="row"> 
               <div class="col-sm-12 col-md-12 col-lg-12 quitar">  
-                <a href="datosHotel.php" target="_blank"><span class="namehotel">'.$rs['nomborg']. '</span></a>
+                <a href="datosHotel.php?idh='. $rs['idorg'].'" target="_blank"><span class="namehotel">'.$rs['nomborg']. '</span></a>
               </div>
               <div class="col-sm-12 col-md-12 col-lg-12 styledato">  
-                ' . $rs['desgeneral'] . '
+                ' . $rs['desgeneral'] . '<br> ' . $rs['desgeneral']. '
               </div>
             </div> '; 
+            
          $ss='   
             <div class="row"> 
               <div class="col-sm-4 col-md-4 col-lg-4 quitar"> 
@@ -96,11 +97,14 @@
           $str .= '                       
           </div>
         </div>';
-      }      
+       
+      }
+      $funcion = "buscarproductos";
+      $str .= pagination($cantidad, $pagina, $funcion, $registro, 6);
       return $str;
     }
 
-  function  pagination($totalRegs, $pagActual, $funcion, $criterio, $numReg = NUM_REGISTROS, $cantPag = 5)
+  function  pagination($totalRegs, $pagActual, $funcion, $numReg = NUM_REGISTROS, $cantPag = 5)
   {
     /*
     $msj = " Valores recibidos";
@@ -120,12 +124,13 @@
     $cantPag = ($cantPag == 0 ?  5 : $cantPag);
     $numReg  = ($numReg  == 0 ? 10 : $numReg);
     if ($totalRegs > 0) {
-      $params = "'" . $criterio . "'";
+      //$params = "'" . $criterio . "'";
+      $params = "";
       $strHtml = '
           <div class="row">
             <div class="col-md-6">
               <input type="hidden" id="pphpagact" value="' . $pagActual . '">';
-      $onclick = $funcion . '(' . $params . ',1,this.value);';
+      $onclick = $funcion . '('.'1,this.value);';
       $strHtml .=
         '<select style="width:58px;" name="cboNumReg" id="cboNumReg" onchange="' . $onclick . '">
                     <option value= "10" ' . ($numReg ==  10 ? 'selected' : '') . '>10</option>
@@ -150,14 +155,14 @@
       $pagInicio = ($pagInicio <= 0 ? 1 : $pagInicio);
       $pagFinal = ($pagInicio + ($cantPag - 1));
       if ($pagActual > 1) {
-        $onclick = $funcion . '(' . $params . ',1,' . $numReg . ');';
+        $onclick = $funcion . '(' . $numReg . ');';
         $strHtml .= '
                       <li class="page-item">
                         <a class="page-link" href="javascript:void(0);" onclick="' . $onclick . '">
                           <i class="fa fa-step-backward"></i>
                         </a>
                       </li>';
-        $onclick = $funcion . '(' . $params . ',' . ($pagActual - 1) . ', ' . $numReg . ');';
+        $onclick = $funcion . '(' . ($pagActual - 1) . ', ' . $numReg . ');';
         $strHtml .= '
                       <li class="page-item">
                         <a class="page-link"  href="javascript:void(0);" onclick="' . $onclick . '">
@@ -182,7 +187,7 @@
       }
       for ($i = $pagInicio; $i <= $pagFinal; $i++) {
         if ($i <= $paginas) {
-          $onclick = $funcion . '(' . $params . ',' . $i . ', ' . $numReg . ');';
+          $onclick = $funcion . '(' . $i . ', ' . $numReg . ');';
           $a = '<a class="page-link" href="javascript:void(0);" onclick="' . $onclick . '">' . $i . '</a>';
           $css = '';
           if ($i == $pagActual) {
@@ -195,7 +200,7 @@
         }
       }
       if ($paginas > 1 && $pagActual != $paginas) {
-        $onclick = $funcion . '(' . $params . ',' . ($pagActual + 1) . ', ' . $numReg . ');';
+        $onclick = $funcion . '(' . ($pagActual + 1) . ', ' . $numReg . ');';
         $strHtml .= '<li class="page-item">
                                   <a class="page-link" href="javascript:void(0);" onclick="' . $onclick . '">
                                     <span aria-hidden="true">
@@ -203,7 +208,7 @@
                                     </span>
                                   </a>
                                 </li>';
-        $onclick = $funcion . '(' . $params . ',' . $paginas . ', ' . $numReg . ');';
+        $onclick = $funcion . '(' . $paginas . ', ' . $numReg . ');';
         $strHtml .= '<li class="page-item">
                                   <a class="page-link" href="javascript:void(0);" onclick="' . $onclick . '">
                                     <i class="fa fa-step-forward"></i>
@@ -250,7 +255,7 @@
       echo "</pre>";
       die();
     */
-    $strTabla =generaTabla($idciudad, $tnegocio, $pagina, $registro);
+    $strTabla =generaTabla($idciudad, $tnegocio, $pagina, $registro, $cantidad);
     //$strTabla = generaTabla($tbltkn, $cantidad, $criterio, $pagina, $registro);
   } else {
     if ($criterio <> "") {

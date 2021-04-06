@@ -8,27 +8,28 @@
     exit;
   }
   */
+	/*
   include_once "allfrontend/modelfron/municipiosData.php";
 	include_once "allfrontend/modelfron/categoryData.php";	
-	include_once "allfrontend/modelfron/tbhotelClienteData.php";		
+	include_once "allfrontend/modelfron/tbhotelClienteData.php";
+	*/
+	include_once "allfrontend/modelfron/tbOrganizacionData.php";		
 	include_once "bdcon.php";
 	$images = get_imgs();
 	//print_r($_SESSION);
-	echo "Datos recibidos->"."<br>";
-	print_r($_REQUEST);;
+	/*echo "Datos recibidos->"."<br>";
+	print_r($_REQUEST);
 	echo "<br>";
-	
-	include('Admin/modpublicos/conexion.php');
-	echo "Voy a listar los hoteles existente....";
+	*/
+	//include('Admin/modpublicos/conexion.php');
+	echo "Datos del hotel con ID(".$_REQUEST['idh'].")....";
 				//$r=tbhotelClienteData::getbuscaHotel($_REQUEST['bmuni'], $_REQUEST['bcate']);
-				$r=tbhotelClienteData::getbuscaHotel(39, 2);				
+				$r= tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);				
 				//echo "prgAjax->(buscarhotel) dentro del switch";
 				//echo $_REQUEST['bmuni']."<br>";
 				//echo $_REQUEST['bcate']."<br>";				
 				echo "<pre>";
-
 				//print_r($_REQUEST);
-
 				print_r($r);
 				echo "</pre>";
 
@@ -706,7 +707,6 @@
     lightbox.option({
 			'showImageNumberLabel':false,
 			'disableScrolling' : true,
-
       'resizeDuration': 150,
       'wrapAround': true
     }); 

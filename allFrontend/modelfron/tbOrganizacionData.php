@@ -8,30 +8,30 @@
  
   public function tbOrganizacionData()
   {
-    $this->idOrg=0;
-    $this->nitDni="";
-    $this->nroPisos=0;
-    $this->IdDescripcionTr="";
-    $this->IdCiudad=0;
-    $this->nombOrg="";
-    $this->dirbOrg="";
-    $this->noTelf1="";
-    $this->noTelf2="";
-    $this->emailOrg="";
-    $this->idTipoTr="";
-    $this->idredsocialtr="";
-    $this->nroHabXpiso=0;
-    $this->aforoPersonas=0;
-    $this->idServicioTr="";
-    $this->idInstalacionTr="";
-    $this->idAccesibilidadTr="";
-    $this->rutaImagen="";
-    $this->status=0;
+    $this->idOrg = 0;
+    $this->nitDni = "";
+    $this->nroPisos = 0;
+    $this->desGeneral = "";
+    $this->IdCiudad = 0;
+    $this->nombOrg = "";
+    $this->dirbOrg = "";
+    $this->noTelf1 = "";
+    $this->noTelf2 = "";
+    $this->emailOrg = "";
+    $this->idTipoTr = "";
+    $this->idredsocialtr = "";
+    $this->nroHabXpiso = 0;
+    $this->aforoPersonas = 0;
+    $this->idServicioTr = "";
+    $this->idInstalacionTr = "";
+    $this->idAccesibilidadTr = "";
+    $this->rutaImagen = "";
+    $this->status = 0;
   } // fin del Metodo CONSTRUCTOR 
-  public function add() 
+  public function add()
   { // metodo add, complementar
-    $str = "insert into ".self::$tablename."(nitDni, nroPisos, IdDescripcionTr, IdCiudad, nombOrg, dirbOrg, noTelf1, noTelf2, emailOrg, idTipoTr, idredsocialtr, nroHabXpiso, aforoPersonas, idServicioTr, idInstalacionTr, idAccesibilidadTr, rutaImagen, status)";
-    $str.= " values ('$this->nitDni', $this->nroPisos, '$this->IdDescripcionTr', $this->IdCiudad, '$this->nombOrg', '$this->dirbOrg', '$this->noTelf1', '$this->noTelf2', '$this->emailOrg', '$this->idTipoTr', '$this->idredsocialtr', $this->nroHabXpiso, $this->aforoPersonas, '$this->idServicioTr', '$this->idInstalacionTr', '$this->idAccesibilidadTr', '$this->rutaImagen', $this->status);";
+    $str = "insert into " . self::$tablename . "(nitDni, nroPisos, desGeneral, IdCiudad, nombOrg, dirbOrg, noTelf1, noTelf2, emailOrg, idTipoTr, idredsocialtr, nroHabXpiso, aforoPersonas, idServicioTr, idInstalacionTr, idAccesibilidadTr, rutaImagen, status)";
+    $str .= " values ('$this->nitDni', $this->nroPisos, '$this->desGeneral', $this->IdCiudad, '$this->nombOrg', '$this->dirbOrg', '$this->noTelf1', '$this->noTelf2', '$this->emailOrg', '$this->idTipoTr', '$this->idredsocialtr', $this->nroHabXpiso, $this->aforoPersonas, '$this->idServicioTr', '$this->idInstalacionTr', '$this->idAccesibilidadTr', '$this->rutaImagen', $this->status);";
   } // fin metodo add, complementar
  
   public static function delById($id) 
@@ -49,23 +49,22 @@
     $row=mysqli_fetch_array($rr);  
     return $row['rta'];
   } // fin metodo addtbOrganizacion
- 
-   public static function oneTbOrganizacion($id)
+
+  public static function oneTbOrganizacion($id)
   {
-    $str="";
-    $str = "select * from ".self::$tablename." where idOrg=$id";
+    $str = "";
+    $str = "select * from " . self::$tablename . " where idOrg=$id";
     $cnx = dbcon();
     $rr = mysqli_query($cnx, $str);
     $array1 = array();
     $cn = 0;
-    while ($rx = mysqli_fetch_array($rr))
-    { 
+    while ($rx = mysqli_fetch_array($rr)) {
       $array1[$cn] = new tbOrganizacionData();
       $array1[$cn]->cons   = $cn;
       $array1[$cn]->idOrg = $rx['idOrg'];
       $array1[$cn]->nitDni = $rx['nitDni'];
       $array1[$cn]->nroPisos = $rx['nroPisos'];
-      $array1[$cn]->IdDescripcionTr = $rx['IdDescripcionTr'];
+      $array1[$cn]->desGeneral = $rx['desGeneral'];
       $array1[$cn]->IdCiudad = $rx['IdCiudad'];
       $array1[$cn]->nombOrg = $rx['nombOrg'];
       $array1[$cn]->dirbOrg = $rx['dirbOrg'];
@@ -84,7 +83,7 @@
       $cn++;
     }  // fin del Ciclo
     return $array1;
-  }  // fin del Metodo(getRecordById)
+  }  // fin del Metodo(oneTbOrganizacion)
  
   public static function countTbOrganizacion($inicio)// metodo contar registros para paginar
   {
@@ -144,9 +143,7 @@
       $cn++;
     }  // fin del Ciclo
     return $array1;
-  }  // fin del Metodo(getAllpaginate)
-
-  
+  }  // fin del Metodo(getAllpaginate)  
 
 public static function getbuscaHotel($idciu, $idcat)
   {
@@ -236,9 +233,8 @@ public static function getbuscaHotel($idciu, $idcat)
   {
     /* trae las organizaciones que estan en una ciudad */
     $ss = "Select a.idorg, a.nitdni, a.nomborg, a.dirborg, a.desgeneral, a.rutaimagen 
-        from tborganizacion a, tbrelorgtiponegocio b
-          where a.idorg = b.idOrg  and b.idtipotr = $tipo and b.status = 1 and a.idciudad = $idciu
-    ";   
+             from tborganizacion a, tbrelorgtiponegocio b
+           where a.idorg = b.idOrg  and b.idtipotr = $tipo and b.status = 1 and a.idciudad = $idciu";   
     $cnx = dbcon();
     $rr = mysqli_query($cnx, $ss);
     $array1 = array();
@@ -249,7 +245,5 @@ public static function getbuscaHotel($idciu, $idcat)
     }
     return $array1;
   }
- 
-   
 }
 ?>
