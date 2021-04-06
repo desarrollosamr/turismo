@@ -1,6 +1,6 @@
 <?php
 function dbcon(){
-  	$host = 'localhost';
+  $host = 'localhost';
 	$usr = 'root';
 	$psw = '';
 	$db = 'bdbasehotel1';

@@ -24,7 +24,7 @@
 		}
 	</script>
 		<script type="text/javascript">
-		 window.history.forward(1);
+		 // window.history.forward(1);
 		</script>			
 	<!-- //for-mobile-apps -->
   <link href="css/icomoon.css"  rel="stylesheet">	
@@ -452,7 +452,6 @@
 				easingType: 'easeOutQuart'
 			});
 		});
-
     $('.f1').datepicker({      
       dateFormat: 'yy-mm-dd',
       changeMonth:true, 
