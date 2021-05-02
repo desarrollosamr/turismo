@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  /*
+session_start();
+/*
   if (!isset($_REQUEST['action'])){
   	//session_destroy();
 		echo '<meta http-equiv="refresh" content="1;url=index.php">';  	
@@ -8,36 +8,37 @@
     exit;
   }
   */
-	/*
+/*
   include_once "allfrontend/modelfron/municipiosData.php";
 	include_once "allfrontend/modelfron/categoryData.php";	
 	include_once "allfrontend/modelfron/tbhotelClienteData.php";
 	*/
-	include_once "allfrontend/modelfron/tbOrganizacionData.php";		
-	include_once "bdcon.php";
-	$images = get_imgs();
-	//print_r($_SESSION);
-	/*echo "Datos recibidos->"."<br>";
+include_once "allfrontend/modelfron/tbOrganizacionData.php";
+include_once "bdcon.php";
+$images = get_imgs();
+//print_r($_SESSION);
+/*echo "Datos recibidos->"."<br>";
 	print_r($_REQUEST);
 	echo "<br>";
 	*/
-	//include('Admin/modpublicos/conexion.php');
-	echo "Datos del hotel con ID(".$_REQUEST['idh'].")....";
-				//$r=tbhotelClienteData::getbuscaHotel($_REQUEST['bmuni'], $_REQUEST['bcate']);
-				$r= tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);				
-				//echo "prgAjax->(buscarhotel) dentro del switch";
-				//echo $_REQUEST['bmuni']."<br>";
-				//echo $_REQUEST['bcate']."<br>";				
-				echo "<pre>";
-				//print_r($_REQUEST);
-				print_r($r);
-				echo "</pre>";
+//include('Admin/modpublicos/conexion.php');
+//echo "Datos del hotel con ID(" . $_REQUEST['idh'] . ")....";
+//$r=tbhotelClienteData::getbuscaHotel($_REQUEST['bmuni'], $_REQUEST['bcate']);
+$r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
+//echo "prgAjax->(buscarhotel) dentro del switch";
+//echo $_REQUEST['bmuni']."<br>";
+//echo $_REQUEST['bcate']."<br>";	
 
-//	die();
+//echo "<pre>";
+//print_r($_REQUEST);
+//print_r($r);
+//echo "</pre>";
+//die();
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<title>publiTour prueba</title>
 	<!-- for-mobile-apps -->
@@ -45,7 +46,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Resort, Campestre, Fincas, Hotel, turismo" />
 	<script type="application/x-javascript">
-	/*
 		addEventListener("load", function() {
 			setTimeout(hideURLbar, 0);
 		}, false);
@@ -53,31 +53,38 @@
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
-		*/
 	</script>
 
 	<!-- //for-mobile-apps -->
-<!--  <link href="css/icomoon.css"  rel="stylesheet">	 -->
+	<!--  <link href="css/icomoon.css"  rel="stylesheet">	 -->
 	<link href="css/bootstrap431/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="css/flexslider/flexslider.css" rel="stylesheet" type="text/css" media="all" />	
+	<link href="css/flexslider/flexslider.css" rel="stylesheet" type="text/css" />
 	<link href="css/font-awesome.css" rel="stylesheet">
 	<!-- lightbox2 -->
-	<link rel="stylesheet" href="pruebas/lightbox2-dev/lightbox2-dev/dist/css/lightbox.css">
+	<!-- <link rel="stylesheet" href="pruebas/lightbox2-dev/lightbox2-dev/dist/css/lightbox.css"> -->
 	<!-- fuentes de google(descargar) -->
 	<link href="//fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Federo" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
-	<script type="text/javascript" src="js/jquery-3.5.1.js"></script> 
-	<script type="text/javascript" src="css/flexslider/flexslider.js"></script> 	
+	<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="css/flexslider/flexslider.js"></script>
+	<script type="text/javascript" src="css/bootstrap431/js/popper.js"></script>
+	<script type="text/javascript" src="css/bootstrap431/js/bootstrap.js"></script>
 	<style type="text/css">
+		.quitar {
+			padding: 0px 5px 0px 5px !important;
+			/*margin-bottom: 0px !important; */
+			margin: 0 auto !important;
+		}
+	</style>
 
-</style>
 </head>
 
-<body >
+<body>
 	<!-- header -->
+	<!--
 	<div class="banner-top">
 		<div class="social-bnr-agileits">
 			<ul class="social-icons3">
@@ -89,7 +96,7 @@
 		<div class="contact-bnr-w3-agile">
 			<ul>
 				<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@facturacionweb.site">desarrollosamr@gmail.com</a></li>
-				<li><i class="fa fa-phone" aria-hidden="true"></i>321-230-4261</li>
+				<li><i class="fa fa-phone" aria-hidden="true"></i>321-230-4261</li>			
 				<li class="s-bar">
 					<div class="search">
 						<input class="search_box" type="checkbox" id="search_box">
@@ -102,15 +109,17 @@
 						</div>
 					</div>
 				</li>
+
 			</ul>
 		</div>
 		<div class="clearfix"></div>
 	</div>
+  -->
 	<div class="w3_navigation">
-		<div class="container-fluid">
+		<div class="container">
 			<nav class="navbar navbar-default">
 				<div class="navbar-header navbar-left">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-collapse-1">
 						<span class="sr-only">Palanca de navegacion</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -125,7 +134,7 @@
 				$nSesion = "sesion";
 				$nmodal
 				?>
-				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+				<div class="collapse navbar-collapse navbar-right" id="bs-collapse-1">
 					<nav class="menu menu--iris">
 						<ul class="nav navbar-nav menu__list">
 							<!-- <li class="menu__item menu__item--current"><a href="index.php" class="menu__link">Casa</a></li> -->
@@ -142,7 +151,7 @@
 									<li><a class="<?php echo $nSesion ?>" href="#">Inicia sesion(modal)</a></li>
 									<li><a href="<?php echo $pgLogin; ?>">Registrase</a></li>
 									<!-- <li><a href="<?php //echo $pgLogin; 
-														?>">Page 1-3</a></li> -->
+																		?>">Page 1-3</a></li> -->
 								</ul>
 							</li>
 							<li class="menu__item"><a href="#about" class="menu__link scroll">Acerca de</a></li>
@@ -152,633 +161,479 @@
 			</nav>
 		</div>
 	</div>
-
-	
-
 	<!-- se muestra resultado de busqueda -->
-<div class="container-fluid" id="rtabusca" style="clear:both;background-color:#ECF0BF; margin : 0 auto !important;                                               padding: 0 !important; ">
-<div class="container">
-	<div class="row">
-		<div class="col-xs-6 col-sm-6 col-md-6 quitar">
-			<div>Radisson Cartagena Ocean Pavillion Hotel</div>
-					<a href="images/imgHoteles/hot3/hot33.jpg" data-lightbox="lin-5" data-title="lin-5 imagen4.">
-					  <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot33.jpg" alt=""
-								data-content="
-								<div class='row'>
-									<div class='col-xs-12 col-sm-12 col-md-12'>
-										<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
-									</div>										
-								</div>									
-								<div class='row'>
-									<div class='col-xs-6 col-sm-6 col-md-6'>
-										<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
-									</div>
-									<div class='col-xs-6 col-sm-6 col-md-6'>
-										tenemos los mejores hjasdgfhjdasbf kljsdahflijdhasf kljhsdfajhasd
-									</div>										
-								</div>									
-								<div class='row'>
-									<div class='col-xs-6 col-sm-6 col-md-6'>
-										<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
-									</div>
-									<div class='col-xs-6 col-sm-6 col-md-6'>
-										<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
-									</div>										
-								</div>
-								<div>Esto es un carretazo</div>"
-								data-html ="true"
-								data-placement="top"
-		            data-trigger = "hover"	
-		            data-toggle = "popover"
-		        />
-					</a>
-					<div class="row">		
-						<div class="col-xs-6 col-sm-6 col-md-6">							
-		          <button type="button" name="btRes3" id="btRes3" class="btn btn-primary btn-block" title="Reservar">
-		            <i class="fa fa-building"></i> Reservar
-		          </button>
-		        </div>
-						<div class="col-xs-6 col-sm-6 col-md-6">							
-		         <a  class="btn btn-success btn-block" href="#myModal3" title="Mas comodidades" id="myBtn7" >
-		             <i class="fa fa-building"></i> M&aacute;s
-		         </a>
-		        </div>			        
-		    	</div>						
-		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6 ">
-			<div>Holiday Inn Express - Cartagena Bocagrande</div>
-				<a href="images/imgHoteles/hot3/hot33.jpg" data-lightbox="lin-5" data-title="lin-5 imagen3.">
-					  <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot33.jpg" alt=""
-								data-content="<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot33.jpg'>"
-								data-html ="true"
-								data-placement="top"
-		            data-trigger = "hover"	
-		            data-toggle = "popover"
-					  />
-				</a>
-				<div class="row">		
-					<div class="col-xs-6 col-sm-6 col-md-6">							
-		        <button type="button" name="btRes3" id="btRes3" class="btn btn-primary btn-block" title="Reservar">
-		          <i class="fa fa-building"></i> Reservar
-		        </button>
-		      </div>
-					<div class="col-xs-6 col-sm-6 col-md-6">							
-		       <a  class="btn btn-success btn-block" href="#myModal3" title="Mas comodidades" id="myBtn7" >
-		           <i class="fa fa-building"></i> M&aacute;s
-		       </a>
-		      </div>			        
-		  	</div>
-		</div> 
-	</div>
-<!-- pilas con esta fila -->
-  <div class="row">
-    <div class="col-sm-4 col-md-4 col-lg-4">
-      <?php if(count($images)>0):?>
-        <div class="flexslider">
-          <ul class="slides">
-            <?php foreach($images as $img):?>
-            <li>
-              <img class="img-fluid img-thumbnail" src="<?php echo 'admin/'.$img->folder.$img->src; ?>" alt="<?php echo $img->title; ?>">
-               <p class="flex-caption"><?php echo trim($img->txtimagen); ?></p>
-            </li>
-            <?php endforeach; ?>
-          </ul>
-        </div>
-      <?php else: ?>
-      <?php endif; ?>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4">
-      <div class="card">
-        <?php if(count($images)>0):?>
-          <div class="flexslider">
-            <ul class="slides">
-              <?php foreach($images as $img):?>
-              <li>
-                <img class="img-fluid img-thumbnail" src="<?php echo 'admin/'.$img->folder.$img->src; ?>" alt="<?php echo $img->title; ?>">
-                 <p class="flex-caption"><?php echo $img->txtimagen; ?></p>
-              </li>
-              <?php endforeach; ?>
-            </ul>
-          </div>
-        <?php else: ?>
-        <?php endif; ?>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4">
-      <div class="card">
-        <img class="img-fluid img-thumbnail" src="https://placeimg.com/640/480/arch" />
-        <div class="card-body">
-          <h3>Nature writing</h3>
-          <p class="text-justify">Nature writing often draws heavily on scientific information and facts about the natural world; at the same time, it is frequently written in the first person and incorporates personal observations of and philosophical reflections upon nature.</p>
-          <button type="button" class="btn btn-primary w-25">View</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-<!-- -->
-		<div class="row">
-	    <div class="col-xs-4 col-sm-4 col-md-4 quitar">
-	    	<div>Radisson Cartagena Ocean Pavillion Hotel</div>
-						<a href="images/imgHoteles/hot3/hot33.jpg" data-lightbox="lin-5" data-title="lin-5 imagen4.">
-						  <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot33.jpg" alt=""
-									data-content="
-									<div class='row'>
-										<div class='col-xs-12 col-sm-12 col-md-12'>
-											<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
-										</div>										
-									</div>									
-									<div class='row'>
-										<div class='col-xs-6 col-sm-6 col-md-6'>
-											<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
-										</div>
-										<div class='col-xs-6 col-sm-6 col-md-6'>
-											tenemos los mejores hjasdgfhjdasbf kljsdahflijdhasf kljhsdfajhasd
-										</div>										
-									</div>									
-									<div class='row'>
-										<div class='col-xs-6 col-sm-6 col-md-6'>
-											<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
-										</div>
-										<div class='col-xs-6 col-sm-6 col-md-6'>
-											<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
-										</div>										
-									</div>
-									<div>Esto es un carretazo</div>"
-									data-html ="true"
-									data-placement="top"
-			            data-trigger = "hover"	
-			            data-toggle = "popover"
-			        />
-						</a>
-						<div class="row">		
-							<div class="col-xs-6 col-sm-6 col-md-6">							
-			          <button type="button" name="btRes3" id="btRes3" class="btn btn-primary btn-block" title="Reservar">
-			            <i class="fa fa-building"></i> Reservar
-			          </button>
-			        </div>
-							<div class="col-xs-6 col-sm-6 col-md-6">							
-		           <a  class="btn btn-success btn-block" href="#myModal3" title="Mas comodidades" id="myBtn7" >
-		               <i class="fa fa-building"></i> M&aacute;s
-		           </a>
-			        </div>			        
-	        	</div>						
-	    </div>
-	    <div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
-	    	<div>Holiday Inn Express - Cartagena Bocagrande</div>
-					<a href="images/imgHoteles/hot3/hot33.jpg" data-lightbox="lin-5" data-title="lin-5 imagen3.">
-						  <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot33.jpg" alt=""
-									data-content="<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot33.jpg'>"
-									data-html ="true"
-									data-placement="top"
-			            data-trigger = "hover"	
-			            data-toggle = "popover"
-						  />
-					</a>
-					<div class="row">		
-						<div class="col-xs-6 col-sm-6 col-md-6">							
-		          <button type="button" name="btRes3" id="btRes3" class="btn btn-primary btn-block" title="Reservar">
-		            <i class="fa fa-building"></i> Reservar
-		          </button>
-		        </div>
-						<div class="col-xs-6 col-sm-6 col-md-6">							
-	           <a  class="btn btn-success btn-block" href="#myModal3" title="Mas comodidades" id="myBtn7" >
-	               <i class="fa fa-building"></i> M&aacute;s
-	           </a>
-		        </div>			        
-        	</div>
-	    </div> 
-	    <div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
-	    	<div style="font-size: 12px !important; 
-	    	background-color: #0C1DF3;
-	    	color: #E7E9A4;">Holiday Inn Express - Cartagena Bocagrande 12345678</div>
-				<a href="images/imgHoteles/hot3/hot33.jpg" data-lightbox="lin-5" data-title="lin-5 imagen3.">
-				  <img class="img-fluid img-thumbnail example-image" src="images/imgHoteles/hot3/hot33.jpg" alt=""/>
-				</a>		
-				<div class="row">		
-					<div class="col-xs-6 col-sm-6 col-md-6">							
-	          <button type="button" name="btRes3" id="btRes3" class="btn btn-primary btn-block" title="Reservar">
-	            <i class="fa fa-building"></i> Reservar
-	          </button>
-	        </div>
-					<div class="col-xs-6 col-sm-6 col-md-6">							
-           <a  class="btn btn-success btn-block" href="#myModal3" title="Mas comodidades" id="myBtn7" >
-               <i class="fa fa-building"></i> M&aacute;s
-           </a>
-	        </div>			        
-        </div>
-	    </div>
-
-	  </div>
-<!-- fin de la cuarta fila -->
-<!-- quinta fila  -->
+	<div class="container-fluid" id="rtabusca" style="background-color:#ECF0BF; margin : 0 auto !important; padding: 0 !important; ">
+		<div class="container">
+			<div class="row ">
+				<div class="col-sm-12 col-md-12 col-lg-12 quitar">
+					<h3>
+						<?php echo $r[0]->nombOrg; ?>
+					</h3>
+					<span style="text-align:justify;">
+						<?php echo $r[0]->desGeneral1; ?>
+					</span>
+					<br>
+					<span style="text-align:justify;">
+						<?php echo $r[0]->desGeneral2; ?>
+					</span>
+				</div>
+			</div><br>
+			<!-- se traen los servicios -->
+			<?php
+			$lservicios = "";
+			$rservicios = tbOrganizacionData::getServicesHotel($_REQUEST['idh']);
+			?>
+			<div class="row ">
+				<div class="col-sm-4 col-md-4 col-lg-4 quitar">
+					<?php if (count($rservicios) > 0) : ?>
+						<div class="flexslider">
+							<ul class="slides">
+								<?php foreach ($rservicios as $img) :
+									$lservicios .= $img['Servicios'] . ",";
+									$ruta1 = "images/imghoteles/imgDefaultServices/" . trim($img['namedefault']);
+									$ruta2 = "images/imghoteles/dir" . $_REQUEST['idh'] . "/imgServicios/" . $img['nameimagen'];;
+									$nfile = empty(trim($img['nameimagen'])) ? $ruta1 : $ruta2;
+								?>
+									<li>
+										<img class="img-thumbnail" src="<?php echo $nfile; ?>" alt="NO hay imagen">
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
+					<?php else : ?>
+					<?php endif; ?>
+				</div>
+				<div class="col-sm-8 col-md-8 col-lg-8">
+					<div class="card">
+						<!--						<img class="img-fluid img-thumbnail" src="https://placeimg.com/640/480/arch" /> -->
+						<div class="card-body">
+							<h3>Nuestros Servicios</h3><br>
+							<p class="text-justify">
+								<?php echo $lservicios;		?>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Se traen las instalaciones -->
+			<?php
+			$linstlacion = "";
+			$rsint = tbOrganizacionData::getInstalacionHotel($_REQUEST['idh']);
+			if (count($rsint) > 0) {
+				foreach ($rsint as $img) {
+					$linstlacion .=  $img['instalacion'] . ", ";
+				}
+			?>
 				<div class="row">
-			    <div class="col-xs-3 col-sm-3 col-md-3 thumbnail quitar">
-			    	<p style="position: absolute; margin: 0 auto 0 auto !important;
-		    			 font-size: 0.5em !important; color:#fff;padding: 0;"> 
-		    			esto es una carretazo <br>otro linea de carreta<br>mas carreta
-		    		</p>	    	
-						<a href="images/imgHoteles/hot3/hot31.jpg" data-lightbox="lin-5" data-title="lin-5 imagen1.">
-						  <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot31.jpg" alt=""
-									data-content="<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot31.jpg'>"
-									data-html ="true"
-									data-placement="bottom"
-			            data-trigger = "hover"	
-			            data-toggle = "popover"
-						  />
-						</a>
-			    </div>
-			    <div class="col-xs-3 col-sm-3 col-md-3 thumbnail quitar">
-			    	<p style="position: absolute; margin: 0 auto !important;
-		    			 text-align: center !important; font-size: 0.5em !important; color:#fff;"> segunda imagen <br>otro linea de carreta<br>mas carreta
-		    		</p>
-						<a href="images/imgHoteles/hot3/hot32.jpg" data-lightbox="lin-5" data-title="lin-5 imagen2.">
-						  <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot32.jpg" alt=""
-									data-content="<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>"
-									data-html ="true"
-									data-placement="bottom"
-			            data-trigger = "hover"	
-			            data-toggle = "popover"
-						  />
-						</a>
-						<div class="row">		
-							<div class="col-xs-6 col-sm-6 col-md-6">							
-			          <button type="button" name="bhr01" id="bhr01" class="btn btn-primary btn-block" title="Reservar">
-			            <i class="fa fa-building"></i> Reservar
-			          </button>
-			        </div>
-							<div class="col-xs-6 col-sm-6 col-md-6">							
-		           <a  tabindex="0" role="button" class="btn btn-success btn-block" href="#" title="Mas comodidades" vv = "10"
-		             
-		           		id="myRese10" >
-		               <i class="fa fa-building"></i> M&aacute;s
-		           </a>
-			        </div>			        
-	          </div>						
-			    </div> 
-			    <div class="col-xs-3 col-sm-3 col-md-3 thumbnail quitar">
-						<a href="images/imgHoteles/hot3/hot33.jpg" data-lightbox="lin-5" data-title="lin-5 imagen3.">
-						  <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot33.jpg" alt=""
-									data-content="<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot33.jpg'>"
-									data-html ="true"
-									data-placement="bottom"
-			            data-trigger = "hover"	
-			            data-toggle = "popover"
-						  />
-						</a>			      
-			    </div>
-			    <div class="col-xs-3 col-sm-3 col-md-3 thumbnail quitar">
-						<a href="images/imgHoteles/hot3/hot33.jpg" data-lightbox="lin-5" data-title="lin-5 imagen4.">
-						  <img class="img-fluid img-thumbnail" src="images/imgHoteles/hot3/hot33.jpg" alt=""
-									data-content="
-									<div class='row'>
-										<div class='col-xs-12 col-sm-12 col-md-12'>
-											<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
-										</div>										
-									</div>									
-									<div class='row'>
-										<div class='col-xs-6 col-sm-6 col-md-6'>
-											<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
+					<div class="col-sm-8 col-md-8 col-lg-8">
+						<div class="card">
+							<div class="card-body">
+								<h3>Nuestros Instalaciones</h3><br>
+								<p class="text-justify">
+									<?php echo $linstlacion; ?>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4 col-md-4 col-lg-4">
+						<div class="flexslider">
+							<ul class="slides">
+								<?php foreach ($rsint as $img) {
+									$ruta1 = "images/imghoteles/imgDefaultinstalacion/" . trim($img['namedefault']);
+									$ruta2 = "images/imghoteles/dir" . $_REQUEST['idh'] . "/imgInstalacion/" . $img['namefile'];;
+									$nfile = empty(trim($img['namefile'])) ? $ruta1 : $ruta2;
+								?>
+									<li>
+										<img class="img-thumbnail" src="<?php echo $nfile; ?>" alt="NO hay imagen">
+									</li>
+								<?php } ?>
+							</ul>
+						</div>
+					</div>
+				</div>
+			<?php  } ?>
+			<!-- se taren los accesos -->
+			<?php
+			$lstAccesos = "";
+			$racceso = tbOrganizacionData::getAccesosHotel($_REQUEST['idh']);
+			/*echo count($racceso);
+					echo "<pre>";
+					print_r($racceso);
+					echo "</pre>"; */
+			if (count($racceso) > 0) {
+			?>
+				<div class="row">
+					<div class="col-sm-4 col-md-4 col-lg-4">
+						<div class="flexslider">
+							<ul class="slides">
+								<?php foreach ($racceso as $img) :
+									$lstAccesos .=  $img['desAccesibilidad'] . ", ";
+									$ruta1 = "images/imghoteles/imgDefaultAcceso/" . trim($img['namedefault']);
+									$ruta2 = "images/imghoteles/dir" . $_REQUEST['idh'] . "/imgAccesos/" . $img['namefile'];;
+									$nfile = empty(trim($img['namefile'])) ? $ruta1 : $ruta2;
+								?>
+									<li>
+										<img class="img-fluid img-thumbnail" src="<?php echo $nfile; ?>" alt="Sin Imagen ?>">
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-8 col-md-8 col-lg-8">
+						<div class="card">
+							<!--						<img class="img-fluid img-thumbnail" src="https://placeimg.com/640/480/arch" /> -->
+							<div class="card-body">
+								<h3>Nuestros Accesos</h3><br>
+								<p class="text-justify">
+									<?php echo $lstAccesos;	?>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php
+			}
+			?>
+			<!-- se taren las habitaciones -->
+		<?php
+			$lsHabitacion = "";
+			$rshabitacion = tbOrganizacionData::getHabitacionHotel($_REQUEST['idh']);
+			echo count($rshabitacion);
+					echo "<pre>";
+					print_r($rshabitacion);
+					echo "</pre>";
+			if (count($rshabitacion) > 0) {
+				
+			}
+			?>
+			<div class="row">
+				<div class="col-sm-8 col-md-8 col-lg-8">
+					<div class="card">						
+						<div class="card-body">
+							<h3>Nuestras habitaciones</h3><br>
+							<p class="text-justify">
+								ascensor, escalera electrica, Acceso con-camino-ST-2, Instalacion Electrica Sub, accesible en silla de ru, Acceso con-camino-WX-4
+							</p>
+							<!--							<button type="button" class="btn btn-primary w-25">View</button> -->
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4 col-lg-4">
+					<?php if (count($images) > 0) : ?>
+						<div class="flexslider">
+							<ul class="slides">
+								<?php foreach ($images as $img) : ?>
+									<li>
+										<img class="img-fluid img-thumbnail" src="<?php echo 'admin/' . $img->folder . $img->src; ?>" alt="<?php echo $img->title; ?>">
+										<!--	<p class="flex-caption"><?php // echo trim($img->txtimagen); 
+																									?></p> -->
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
+					<?php else : ?>
+					<?php endif; ?>
+				</div>
+			</div>
+			<!-- -->
+			<!-- fin de la Quinta fila -->
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- fin container-fluid> -->
+	<!-- modal(myModal3) -->
+	<div class="modal fade" id="myModal3" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title"><strong>Nueva</strong> especialidad</h3>
+				</div>
+				<div class="modal-body" style="background-color:#D9F7F0">
+					<form role="form" autocomplete="off" name="frm" id="frm" method="post" action="">
+						<fieldset>
+							<label>Nombre Especialidad</label>
+							<input type="text" id="nomSpecial" name="nomSpecial" class="form-control" placeholder="Ingrese Nombre Especializaci&oacute;n" pattern="[a-zA-Z]" required="">
+						</fieldset>
+						<br>
+						<button type="submit" name="submit" class="btn btn-primary" title="Guardar registro" id="save" data-destino="guardar" value="save">
+							<i class="fa fa-save"></i> Guardar
+						</button>
+						<button type="button" class="btn btn-danger" title="Cancelar el proceso" id="cancel" data-destino="cancela">
+							<i class="fa fa-times-circle"></i> Cerrar
+						</button>
+
+					</form>
+				</div>
+				<div class="modal-footer"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- -->
+	<div class="modal fade" id="mymodal0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog " role="document">
+			<div class="modal-content">
+				<form action="index.php" method="post">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Hola</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<h4>Bienvenido a la ventana modal Boostrap 4</h4>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Email</label>
+							<input type="email" class="form-control" name="email" placeholder="Escribe tu email...">
+							<small id="emailHelp" class="form-text text-muted">Escribe tu email. Esto es un ejemplo. Tu email no queda registrado en ningun lugar.</small>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+						<button type="submit" name="submitSave" class="btn btn-primary">Guardar cambios</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- -->
+	<div class="modal fade" id="myModal5" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header" style="padding: 7px 30px 2px 30px;">
+					<h3 class="modal-title"><strong>Nueva</strong> especialidad</h3>
+				</div>
+				<div class="modal-body" style="background-color:#D9F7F0">
+
+
+
+					<div id="stodo" class="tab-pane fade in active ctx" style="background-color:red;">
+						<form method="post" class="colorlib-form">
+							<div class="row">
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="date"><span class="glyphicon glyphicon-map-marker"></span> Where:</label>
+										<div class="form-field">
+											<input type="text" id="location" class="form-control" placeholder="Search Location">
 										</div>
-										<div class='col-xs-6 col-sm-6 col-md-6'>
-											tenemos los mejores hjasdgfhjdasbf kljsdahflijdhasf kljhsdfajhasd
-										</div>										
-									</div>									
-									<div class='row'>
-										<div class='col-xs-6 col-sm-6 col-md-6'>
-											<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
-										</div>
-										<div class='col-xs-6 col-sm-6 col-md-6'>
-											<img class='img-fluid img-thumbnail' src='images/imgHoteles/hot3/hot32.jpg'>
-										</div>										
 									</div>
-									<div>Esto es un carretazo</div>"
-									data-html ="true"
-									data-placement="right"
-			            data-trigger = "hover"	
-			            data-toggle = "popover"
-			        />
-						</a>
-						<div class="row">		
-							<div class="col-xs-6 col-sm-6 col-md-6">							
-			          <button type="button" name="btRes3" id="btRes3" class="btn btn-primary btn-block" title="Reservar">
-			            <i class="fa fa-building"></i> Reservar
-			          </button>
-			        </div>
-							<div class="col-xs-6 col-sm-6 col-md-6">							
-		           <a  class="btn btn-success btn-block" href="#myModal3" title="Mas comodidades" id="myBtn7" >
-		               <i class="fa fa-building"></i> M&aacute;s
-		           </a>
-			        </div>			        
-	          </div>	
-			    </div>
-			  </div>
-<!-- fin de la Quinta fila -->
-		<div class="clearfix"></div>
-	</div> 
-</div> <!-- fin container-fluid> -->
-    <!-- modal(myModal3) -->
-    <div class="modal fade" id="myModal3" role="dialog">      
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title"><strong>Nueva</strong> especialidad</h3>
-          </div>
-          <div class="modal-body" style="background-color:#D9F7F0">
-            <form role="form" autocomplete="off"  name="frm" id="frm" method="post" action="">
-                <fieldset >
-                        <label>Nombre Especialidad</label>                      
-                        <input type="text" id ="nomSpecial" name="nomSpecial" class="form-control" placeholder="Ingrese Nombre Especializaci&oacute;n" pattern="[a-zA-Z]" required="">
-                </fieldset>
-                <br>
-                <button type="submit" name="submit" class="btn btn-primary"  
-                				title="Guardar registro" id="save" data-destino="guardar" value="save">
-                  <i class="fa fa-save"></i> Guardar
-                </button>
-                <button type="button" class="btn btn-danger"  
-                				title="Cancelar el proceso" id="cancel" data-destino="cancela">
-                  <i class="fa fa-times-circle"></i> Cerrar
-                </button>
-
-            </form>
-          </div>
-          <div class="modal-footer"> </div>
-      	</div>
-    	</div>
-  	</div>
-<!-- -->
-  <div class="modal fade" id="mymodal0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog " role="document">
-      <div class="modal-content">
-        <form action="index.php" method="post">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Hola</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-	          <h4>Bienvenido a la ventana modal Boostrap 4</h4>
-	          <div class="form-group">
-              <label for="exampleInputEmail1">Email</label>
-              <input type="email" class="form-control" name="email" placeholder="Escribe tu email...">
-              <small id="emailHelp" class="form-text text-muted">Escribe tu email. Esto es un ejemplo. Tu email no queda registrado en ningun lugar.</small>
-	          </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="submit" name="submitSave" class="btn btn-primary">Guardar cambios</button>
-          </div>
-        </form>
-        </div>
-    </div>
-  </div>
-<!-- -->
-  <div class="modal fade" id="myModal5" role="dialog">      
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header" style="padding: 7px 30px 2px 30px;">
-          <h3 class="modal-title"><strong>Nueva</strong> especialidad</h3>
-        </div>
-        <div class="modal-body" style="background-color:#D9F7F0">
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<label for="date"><span class="glyphicon glyphicon-calendar"></span> Check-in:</label>
+										<div class="form-field">
+											<input type="text" id="fx00" name="fx00" class="form-control  f1" placeholder="Check-in date">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<label for="date"><span class="glyphicon glyphicon-calendar"></span> Check-out:</label>
+										<div class="form-field">
+											<input type="text" id="fx01" name="f01x" class="form-control  f1" placeholder="Check-out date">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label for="date"><span class="glyphicon glyphicon-user"></span> Guest:</label>
+										<div class="form-field">
+											<select name="people" id="people" class="form-control">
+												<option value="#">1</option>
+												<option value="#">2</option>
+												<option value="#">3</option>
+												<option value="#">4</option>
+												<option value="#">5+</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<input type="submit" op="1" name="submit" id="submit" value="Buscar" class="btn btn-primary btn-block">
+								</div>
+							</div>
+						</form>
+					</div>
 
 
 
-        <div id="stodo" class="tab-pane fade in active ctx" style="background-color:red;">
-          <form method="post" class="colorlib-form">
-            <div class="row">
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label for="date"><span class="glyphicon glyphicon-map-marker"></span> Where:</label>
-                  <div class="form-field">
-                    <input type="text" id="location" class="form-control" placeholder="Search Location">
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="form-group">
-                  <label for="date"><span class="glyphicon glyphicon-calendar"></span> Check-in:</label>
-                  <div class="form-field">
-                    <input type="text" id="fx00" name="fx00" class="form-control  f1" placeholder="Check-in date">
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="form-group">
-                  <label for="date"><span class="glyphicon glyphicon-calendar"></span> Check-out:</label>
-                  <div class="form-field">
-                    <input type="text" id="fx01" name="f01x" class="form-control  f1" placeholder="Check-out date">
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label for="date"><span class="glyphicon glyphicon-user"></span> Guest:</label>
-                  <div class="form-field">
-                    <select name="people" id="people" class="form-control">
-                      <option value="#">1</option>
-                      <option value="#">2</option>
-                      <option value="#">3</option>
-                      <option value="#">4</option>
-                      <option value="#">5+</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <input type="submit" op="1" name="submit" id="submit" value="Buscar" class="btn btn-primary btn-block">
-              </div>
-            </div>
-          </form>
-        </div>
-
-
-
-          <form role="form" autocomplete="off"  name="frm" id="frm" method="post" action="">
-          	<div class="row">
-					    <div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
+					<form role="form" autocomplete="off" name="frm" id="frm" method="post" action="">
+						<div class="row">
+							<div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
 								<a href="images/imgHoteles/hot3/hot31.jpg" data-lightbox="hot3" data-title="col3 imagen1.">
-								  <img  src="images/imgHoteles/hot3/hot31.jpg" alt=""/>
+									<img src="images/imgHoteles/hot3/hot31.jpg" alt="" />
 								</a>
 							</div>
-					    <div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
+							<div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
 								<a href="images/imgHoteles/hot3/hot31.jpg" data-lightbox="hot3" data-title="col3 imagen1.">
-								  <img  src="images/imgHoteles/hot3/hot31.jpg" alt=""/>
-								</a>				
-					    </div>
-					    <div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
-								<a href="images/imgHoteles/hot3/hot31.jpg" data-lightbox="hot3" data-title="col3 imagen1.">
-								  <img  src="images/imgHoteles/hot3/hot31.jpg" alt=""/>
+									<img src="images/imgHoteles/hot3/hot31.jpg" alt="" />
 								</a>
 							</div>
-          	</div>
-        <div id="stodo" class="tab-pane fade in active ctx" style="background-color:red;">
-          <form method="post" class="colorlib-form">
-            <div class="row">
-              <div class="col-md-3">
+							<div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
+								<a href="images/imgHoteles/hot3/hot31.jpg" data-lightbox="hot3" data-title="col3 imagen1.">
+									<img src="images/imgHoteles/hot3/hot31.jpg" alt="" />
+								</a>
+							</div>
+						</div>
+						<div id="stodo" class="tab-pane fade in active ctx" style="background-color:red;">
+							<form method="post" class="colorlib-form">
+								<div class="row">
+									<div class="col-md-3">
 
-              </div>
-              <div class="col-md-2">
-                <div class="form-group">
-                  <label for="date"><span class="glyphicon glyphicon-calendar"></span> Check-in:</label>
-                  <div class="form-field">
-                    <input type="text" id="fx00" name="fx00" class="form-control  f1" placeholder="Check-in date">
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="form-group">
-                  <label for="date"><span class="glyphicon glyphicon-calendar"></span> Check-out:</label>
-                  <div class="form-field">
-                    <input type="text" id="fx01" name="f01x" class="form-control  f1" placeholder="Check-out date">
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label for="date"><span class="glyphicon glyphicon-user"></span> Guest:</label>
-                  <div class="form-field">
-                    <select name="people" id="people" class="form-control">
-                      <option value="#">1</option>
-                      <option value="#">2</option>
-                      <option value="#">3</option>
-                      <option value="#">4</option>
-                      <option value="#">5+</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <input type="submit" op="1" name="submit" id="submit" value="Buscar" class="btn btn-primary btn-block">
-              </div>
-            </div>
-          </form>
-        </div>          	
-              <fieldset >
-                      <label>Nombre Especialidad</label>                      
-                      <input type="text" id ="nomSpecial" name="nomSpecial" class="form-control" placeholder="Ingrese Nombre Especializaci&oacute;n" pattern="[a-zA-Z]" required="">
-              </fieldset>
-          	<div class="row">
-					    <div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="date"><span class="glyphicon glyphicon-calendar"></span> Check-in:</label>
+											<div class="form-field">
+												<input type="text" id="fx00" name="fx00" class="form-control  f1" placeholder="Check-in date">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="date"><span class="glyphicon glyphicon-calendar"></span> Check-out:</label>
+											<div class="form-field">
+												<input type="text" id="fx01" name="f01x" class="form-control  f1" placeholder="Check-out date">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="date"><span class="glyphicon glyphicon-user"></span> Guest:</label>
+											<div class="form-field">
+												<select name="people" id="people" class="form-control">
+													<option value="#">1</option>
+													<option value="#">2</option>
+													<option value="#">3</option>
+													<option value="#">4</option>
+													<option value="#">5+</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<input type="submit" op="1" name="submit" id="submit" value="Buscar" class="btn btn-primary btn-block">
+									</div>
+								</div>
+							</form>
+						</div>
+						<fieldset>
+							<label>Nombre Especialidad</label>
+							<input type="text" id="nomSpecial" name="nomSpecial" class="form-control" placeholder="Ingrese Nombre Especializaci&oacute;n" pattern="[a-zA-Z]" required="">
+						</fieldset>
+						<div class="row">
+							<div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
 								<a href="images/imgHoteles/hot3/hot31.jpg" data-lightbox="hot3" data-title="col3 imagen1.">
-								  <img  src="images/imgHoteles/hot3/hot31.jpg" alt=""/>
+									<img src="images/imgHoteles/hot3/hot31.jpg" alt="" />
 								</a>
 							</div>
-					    <div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
+							<div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
 								<a href="images/imgHoteles/hot3/hot31.jpg" data-lightbox="hot3" data-title="col3 imagen1.">
-								  <img  src="images/imgHoteles/hot3/hot31.jpg" alt=""/>
-								</a>				
-					    </div>
-					    <div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
-								<a href="images/imgHoteles/hot3/hot31.jpg" data-lightbox="hot3" data-title="col3 imagen1.">
-								  <img  src="images/imgHoteles/hot3/hot31.jpg" alt=""/>
+									<img src="images/imgHoteles/hot3/hot31.jpg" alt="" />
 								</a>
 							</div>
-          	</div>              
-              <br>
-              <button type="submit" name="submit" class="btn btn-primary"  
-              				title="Guardar registro" id="save" data-destino="guardar" value="save">
-                <i class="fa fa-save"></i> Guardar
-              </button>
-              <button type="button" class="btn btn-danger"  
-              				title="Cancelar el proceso" id="cancel" data-destino="cancela">
-                <i class="fa fa-times-circle"></i> Cerrar
-              </button>
+							<div class="col-xs-4 col-sm-4 col-md-4 thumbnail">
+								<a href="images/imgHoteles/hot3/hot31.jpg" data-lightbox="hot3" data-title="col3 imagen1.">
+									<img src="images/imgHoteles/hot3/hot31.jpg" alt="" />
+								</a>
+							</div>
+						</div>
+						<br>
+						<button type="submit" name="submit" class="btn btn-primary" title="Guardar registro" id="save" data-destino="guardar" value="save">
+							<i class="fa fa-save"></i> Guardar
+						</button>
+						<button type="button" class="btn btn-danger" title="Cancelar el proceso" id="cancel" data-destino="cancela">
+							<i class="fa fa-times-circle"></i> Cerrar
+						</button>
 
-          </form>
-        </div>
-        <div class="modal-footer"> </div>
-    	</div>
-  	</div>
-  </div>
-<!-- -->
+					</form>
+				</div>
+				<div class="modal-footer"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- -->
 	<div class="copy">
 		<p>© 2018 <a href="index.php">AMENECER</a> </p>
 	</div>
 	<!-- <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script> -->
-	<script type="text/javascript" src="css/bootstrap431/js/popper.js"></script>		
-	<script type="text/javascript" src="css/bootstrap431/js/bootstrap.js"></script>	
-  <script src="pruebas/lightbox2-dev/lightbox2-dev/dist/js/lightbox.js"></script>
+
+	<!-- <script src="pruebas/lightbox2-dev/lightbox2-dev/dist/js/lightbox.js"></script> -->
 	<!-- //smooth scrolling -->
 	<script>
-    lightbox.option({
-			'showImageNumberLabel':false,
-			'disableScrolling' : true,
-      'resizeDuration': 150,
-      'wrapAround': true
-    }); 
-     /*   
+		/*
+		lightbox.option({
+			'showImageNumberLabel': false,
+			'disableScrolling': true,
+			'resizeDuration': 150,
+			'wrapAround': true
+		});
+		*/
+		/*   
 		$("#myBtn3").click(function() { 
 			//alert("me pulsastes");		  
 		  $("#myModal3").modal({
 		    backdrop: "static"
 		  });
 		});
-		*/  
-		$("a[id*=myBt]").click(function(e){
+		*/
+		$("a[id*=myBt]").click(function(e) {
 			e.preventDefault();
-			var sdate  = $(this).attr("vv");
+			var sdate = $(this).attr("vv");
 			//alert("ggjhjgj");
-		$("#myModal3").modal({		  
-		//  $("#mymodal0").modal({
-		    backdrop: "static"
-		  });
-      /*var fdata = $("#frm1").serialize();
-      var xdpto = $("#buscadpto").val();
-      var xmuni = $("#buscamuni").val();
-      var stipo = $("#buscatipo").val();*/
-    });
-		$("button[id*=btR]").click(function(e){
-			e.preventDefault();
-			var sdate  = $(this).attr("vv");
-			//alert("ggjhjgj");
-      /*var fdata = $("#frm1").serialize();
-      var xdpto = $("#buscadpto").val();
-      var xmuni = $("#buscamuni").val();
-      var stipo = $("#buscatipo").val();*/
-			$("#mymodal0").modal({		  
-			//  $("#mymodal0").modal({
-			    backdrop: "static"
-			  });
-    });  
-    $("button[id*=bhr]").click(function(e){
-			e.preventDefault();
-			var sdate  = $(this).attr("vv");
-			//alert("ggjhjgj");
-      /*var fdata = $("#frm1").serialize();
-      var xdpto = $("#buscadpto").val();
-      var xmuni = $("#buscamuni").val();
-      var stipo = $("#buscatipo").val();*/
-			$("#myModal5").modal({		  
-			//  $("#mymodal0").modal({
-			    backdrop: "static"
-			  });
-    }); 
-		$("button").click(function(){
-		  if($(this).data('destino') == 'guardar'){		   
-		  }
-		  else{
-		    //alert('Cerrar');
-		     $("#myModal3").modal('hide');
-		  }
+			$("#myModal3").modal({
+				//  $("#mymodal0").modal({
+				backdrop: "static"
+			});
+			/*var fdata = $("#frm1").serialize();
+			var xdpto = $("#buscadpto").val();
+			var xmuni = $("#buscamuni").val();
+			var stipo = $("#buscatipo").val();*/
 		});
-		$(document).ready(function(){
+		$("button[id*=btR]").click(function(e) {
+			e.preventDefault();
+			var sdate = $(this).attr("vv");
+			//alert("ggjhjgj");
+			/*var fdata = $("#frm1").serialize();
+			var xdpto = $("#buscadpto").val();
+			var xmuni = $("#buscamuni").val();
+			var stipo = $("#buscatipo").val();*/
+			$("#mymodal0").modal({
+				//  $("#mymodal0").modal({
+				backdrop: "static"
+			});
+		});
+		$("button[id*=bhr]").click(function(e) {
+			e.preventDefault();
+			var sdate = $(this).attr("vv");
+			//alert("ggjhjgj");
+			/*var fdata = $("#frm1").serialize();
+			var xdpto = $("#buscadpto").val();
+			var xmuni = $("#buscamuni").val();
+			var stipo = $("#buscatipo").val();*/
+			$("#myModal5").modal({
+				//  $("#mymodal0").modal({
+				backdrop: "static"
+			});
+		});
+		$("button").click(function() {
+			if ($(this).data('destino') == 'guardar') {} else {
+				//alert('Cerrar');
+				$("#myModal3").modal('hide');
+			}
+		});
+		$(document).ready(function() {
 			$('img[data-toggle="popover"]').popover();
 			//$("img[id*=myRese]").popover();
-
 		});
 
 
-  $('.flexslider').flexslider({
-    animation: "fade",
-    animationSpeed: 600
-    //slideshowSpeed: 1600
-  });
-
-</script>
+		$('.flexslider').flexslider({
+			animation: "fade",
+			controlNav: false, // quitar los botones de "abajo" para navegar-desplazar
+			animationSpeed: 600
+			//slideshowSpeed: 1600
+		});
+	</script>
 </body>
 
 </html>

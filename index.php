@@ -1,5 +1,5 @@
 <?php
-	/*
+/*
 	session_start();
 	$_SESSION['banner'] = (isset($_SESSION['banner'])) ? $_SESSION['banner'] : 'start'; 
 	include('Admin/modpublicos/conexion.php');
@@ -8,6 +8,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<title>publiTour prueba</title>
 	<!-- for-mobile-apps -->
@@ -23,48 +24,60 @@
 			window.scrollTo(0, 1);
 		}
 	</script>
-		<script type="text/javascript">
-		 // window.history.forward(1);
-		</script>			
+	<script type="text/javascript">
+		// window.history.forward(1);
+	</script>
 	<!-- //for-mobile-apps -->
-  <link href="css/icomoon.css"  rel="stylesheet">	
+	<link href="css/icomoon.css" rel="stylesheet">
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/font-awesome.css" rel="stylesheet">
-	<link href="css/chocolat.css"  rel="stylesheet" type="text/css" media="screen">
+	<link href="css/chocolat.css" rel="stylesheet" type="text/css" media="screen">
 	<link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
 	<link href="css/flexslider.css" rel="stylesheet" type="text/css" media="screen" property="" />
-	<link href="css/jquery-ui.css" rel="stylesheet"/>
-	<link href="css/swipebox.css" rel="stylesheet">	
+	<link href="css/jquery-ui.css" rel="stylesheet" />
+	<link href="css/swipebox.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="fonts1/flaticon/font/flaticon.css" rel="stylesheet">	
+	<link href="fonts1/flaticon/font/flaticon.css" rel="stylesheet">
 	<!--<link href="pruebasmenu/style01.css" rel="stylesheet">	   -->
-	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script> 
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
 	<!--fonts-->
-	<link href="//fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Federo" rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+	<!-- <link href="//fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet"> -->
+	<link href="fonts/Oswald/static/Oswald-Light.ttf" rel="stylesheet">
+	<link href="fonts/Oswald/static/Oswald-Regular.ttf" rel="stylesheet">
+	<link href="fonts/Oswald/static/Oswald-Bold.ttf" rel="stylesheet">
+
+	<!-- <link href="//fonts.googleapis.com/css?family=Federo" rel="stylesheet"> -->
+	<link href="fonts/Federo/Federo-Regular.ttf" rel="stylesheet">
+
+	<!-- <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"> -->
+	<link href="fonts/Lato/Lato-Light.ttf" rel="stylesheet">
+	<link href="fonts/Lato/Lato-Regular.ttf" rel="stylesheet">
+	<link href="fonts/Lato/Lato-Bold.ttf" rel="stylesheet">
+	<link href="fonts/Lato/Lato-Black.ttf" rel="stylesheet">
 	<!--//fonts-->
 	<style type="text/css">
-	.nav-tabs{
-		border: none;
-		border-bottom-color: currentcolor;
-		border-bottom-style: none;
-		border-bottom-width: medium;
-		border-bottom: none;
-		-webkit-transition: 0.3s;
-		-o-transition: 0.3s;
-		transition: 0.3s;
-	}
-	.sobre:hover, .sobre:focus {
-		color: #db1313 !important;
-		text-decoration: none;
-		/*background-color: #2416c7 !important; */
-	}
+		.nav-tabs {
+			border: none;
+			border-bottom-color: currentcolor;
+			border-bottom-style: none;
+			border-bottom-width: medium;
+			border-bottom: none;
+			-webkit-transition: 0.3s;
+			-o-transition: 0.3s;
+			transition: 0.3s;
+		}
+
+		.sobre:hover,
+		.sobre:focus {
+			color: #db1313 !important;
+			text-decoration: none;
+			/*background-color: #2416c7 !important; */
+		}
 	</style>
 </head>
 
-<body >
+<body>
 	<!-- header -->
 	<div class="banner-top">
 		<div class="social-bnr-agileits">
@@ -130,7 +143,7 @@
 									<li><a class="<?php echo $nSesion ?>" href="#">Inicia sesion(modal)</a></li>
 									<li><a href="<?php echo $pgLogin; ?>">Registrase</a></li>
 									<!-- <li><a href="<?php //echo $pgLogin; 
-														?>">Page 1-3</a></li> -->
+																		?>">Page 1-3</a></li> -->
 								</ul>
 							</li>
 							<li class="menu__item"><a href="#about" class="menu__link scroll">Acerca de</a></li>
@@ -190,7 +203,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="clearfix"> </div>			
+			<div class="clearfix"> </div>
 		</div>
 		<div class="thim-click-to-bottom">
 			<a href="#about" class="scroll">
@@ -198,20 +211,28 @@
 			</a>
 		</div>
 	</div>
-	
-	<?php //include_once  "modgeneral/modbusca.php"  ?>
-	<?php  include_once "modgeneral/modbusca1.php"  ?>
-	<?php // include_once "modgeneral/servicios.php"  ?>
-	<?php // include_once "modgeneral/intermedio.php" ?>
-	<?php // include_once "modgeneral/acercade.php"   ?>
-	<?php //include_once "modgeneral/teams.php"    ?>
-	<?php //include_once "modgeneral/teamsMejorado.php" ?>
-	<?php //include_once "modgeneral/visitantes.php" ?>
+
+	<?php //include_once  "modgeneral/modbusca.php"  
+	?>
+	<?php include_once "modgeneral/modbusca1.php"  ?>
+	<?php // include_once "modgeneral/servicios.php"  
+	?>
+	<?php // include_once "modgeneral/intermedio.php" 
+	?>
+	<?php // include_once "modgeneral/acercade.php"   
+	?>
+	<?php //include_once "modgeneral/teams.php"    
+	?>
+	<?php //include_once "modgeneral/teamsMejorado.php" 
+	?>
+	<?php //include_once "modgeneral/visitantes.php" 
+	?>
 
 	<?php include_once "modgeneral/galerias.php" ?>
-	<!-- aca empeizan las tarifas -->	
+	<!-- aca empeizan las tarifas -->
 	<?php include_once "modgeneral/tarifas.php" ?>
-	<?php //include_once "modgeneral/publicidad.php" ?>
+	<?php //include_once "modgeneral/publicidad.php" 
+	?>
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
 		<!-- Modal1 -->
 		<div class="modal-dialog">
@@ -452,19 +473,21 @@
 				easingType: 'easeOutQuart'
 			});
 		});
-    $('.f1').datepicker({      
-      dateFormat: 'yy-mm-dd',
-      changeMonth:true, 
-      changeYear:true ,  
-      firstDay: 1,
-      monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 
-                    'Mayo', 'Junio',  'Julio', 'Agosto', 
-                    'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-      monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 
-                        'May', 'Jun', 'Jul', 'Ago', 
-                        'Sep', 'Oct', 'Nov', 'Dic'],  
-      dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'] 
-      });
+		$('.f1').datepicker({
+			dateFormat: 'yy-mm-dd',
+			changeMonth: true,
+			changeYear: true,
+			firstDay: 1,
+			monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril',
+				'Mayo', 'Junio', 'Julio', 'Agosto',
+				'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+			],
+			monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr',
+				'May', 'Jun', 'Jul', 'Ago',
+				'Sep', 'Oct', 'Nov', 'Dic'
+			],
+			dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+		});
 	</script>
 	<div class="arr-w3ls">
 		<a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>

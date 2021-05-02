@@ -1,4 +1,4 @@
-USE `basehotel1`;
+USE `bdbasehotel1`;
 
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_deleteTemporal`(IN `pnro` int,  IN `pkeyh` int, IN `flag` int)

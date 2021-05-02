@@ -2,8 +2,6 @@
 USE `bdbasehotel1`;
 -- Nuevas tablas 
 -- lo nuevo de manolo
--- tablas transversales -------
-
 -- tabla Organizacion --
 DROP TABLE IF EXISTS `Tborganizacion`;
 CREATE TABLE `Tborganizacion` (
