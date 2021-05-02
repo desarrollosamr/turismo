@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 /*
   if (!isset($_REQUEST['action'])){
   	//session_destroy();
@@ -22,13 +22,16 @@ $tbltkn =  "tkna" . ((mt_rand(1, 2) == 1) ? date("His") . (time() + 1) . mt_rand
 $tbltmp =  "tknb" . ((mt_rand(1, 2) == 1) ? date("sHi") . mt_rand(501, 999) . (time() + 1) : mt_rand(1001, 9999) . date("iHs") . (time() + 1));
 global $idciudad;
 global $tnegocio;
+global $nrorgtos;
 $idciudad = $_REQUEST['bmuni'];
 $tnegocio = $_REQUEST['bcate'];
 $rtemporal = tbOrganizacionData::getdatahotelbasica($_REQUEST['bmuni'], $_REQUEST['bcate'], $tbltkn, $tbltmp);
 $nrorgtos = count($rtemporal);
-
+//echo "<pre>";
+//print_r($rtemporal);
+//echo "</pre>";
+//die();
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -66,6 +69,7 @@ $nrorgtos = count($rtemporal);
 			/*margin-bottom: 0px !important; */
 			margin: 0 auto !important;
 		}
+
 		.namehotel {
 			padding: 0px 15px !important;
 			color: #ce11d4;
@@ -344,6 +348,39 @@ $nrorgtos = count($rtemporal);
 	<!--  <script src="pruebas/lightbox2-dev/lightbox2-dev/dist/js/lightbox.js"></script> -->
 	<!-- //smooth scrolling -->
 	<script>
+		function buscaRecord(cr, pa, re) {
+		//	alert("cr->" + cr + "\n pa->" + pa + "\n nrorgtros" + <?php //echo $nrorgtos; ?> + "\n idciudad->" + <?php //echo $idciudad; ?>);
+
+			//let codsearch = $('#buscar').val();
+			//$('#buscar').val("");
+			/*if (cr==""){
+			    mysweet("No se puede dejar vacio", "error");
+			  }else{*/
+			// alert("cr="+cr+"\n pa="+pa+"\re="+re);
+			url = "<?php echo 'listahotel.php' ?>";
+			data = {
+					cr: cr,
+					pa: pa,
+					re : re,
+					cn: <?php echo $nrorgtos; ?>,
+					ci: <?php echo $idciudad; ?>,
+					tn: <?php echo $tnegocio; ?>
+				},
+				$.ajax({
+					type: "POST",
+					url: url,
+					data: data,
+					success: function(r) {
+						//console.log(r);
+						if (r != "error") {
+							$('#lstHotel').html(r);
+						} else {
+							mysweet("NO hay registro con ese dato", "error");
+						}
+					}
+				});
+			/*}*/
+		}
 		/*
     lightbox.option({
 			'showImageNumberLabel':false,
