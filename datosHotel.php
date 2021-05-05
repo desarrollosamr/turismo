@@ -14,8 +14,8 @@ session_start();
 	include_once "allfrontend/modelfron/tbhotelClienteData.php";
 	*/
 include_once "allfrontend/modelfron/tbOrganizacionData.php";
-include_once "bdcon.php";
-$images = get_imgs();
+//include_once "bdcon.php";
+//$images = get_imgs();
 //print_r($_SESSION);
 /*echo "Datos recibidos->"."<br>";
 	print_r($_REQUEST);
@@ -28,7 +28,6 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 //echo "prgAjax->(buscarhotel) dentro del switch";
 //echo $_REQUEST['bmuni']."<br>";
 //echo $_REQUEST['bcate']."<br>";	
-
 //echo "<pre>";
 //print_r($_REQUEST);
 //print_r($r);
@@ -38,7 +37,6 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 	<title>publiTour prueba</title>
 	<!-- for-mobile-apps -->
@@ -79,9 +77,7 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 			margin: 0 auto !important;
 		}
 	</style>
-
 </head>
-
 <body>
 	<!-- header -->
 	<!--
@@ -256,10 +252,6 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 			<?php
 			$lstAccesos = "";
 			$racceso = tbOrganizacionData::getAccesosHotel($_REQUEST['idh']);
-			/*echo count($racceso);
-					echo "<pre>";
-					print_r($racceso);
-					echo "</pre>"; */
 			if (count($racceso) > 0) {
 			?>
 				<div class="row">
@@ -269,7 +261,7 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 								<?php foreach ($racceso as $img) :
 									$lstAccesos .=  $img['desAccesibilidad'] . ", ";
 									$ruta1 = "images/imghoteles/imgDefaultAcceso/" . trim($img['namedefault']);
-									$ruta2 = "images/imghoteles/dir" . $_REQUEST['idh'] . "/imgAccesos/" . $img['namefile'];;
+									$ruta2 = "images/imghoteles/dir" . $_REQUEST['idh'] . "/imgAccesos/" . $img['namefile'];
 									$nfile = empty(trim($img['namefile'])) ? $ruta1 : $ruta2;
 								?>
 									<li>
@@ -294,49 +286,93 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 			<?php
 			}
 			?>
-			<!-- se taren las habitaciones -->
-		<?php
-			$lsHabitacion = "";
-			$rshabitacion = tbOrganizacionData::getHabitacionHotel($_REQUEST['idh']);
-			echo count($rshabitacion);
-					echo "<pre>";
-					print_r($rshabitacion);
-					echo "</pre>";
-			if (count($rshabitacion) > 0) {
-				
-			}
+			<!-- se traen las habitaciones -->
+			<?php
+				function createROWS($rshabitacion, $c)
+				{
+					global $nn;
+					$j = 0;
+					$ruta1 = "images/imghoteles/imgDefaultHabitacion/";
+					$ruta2 = "images/imghoteles/dir" . $_REQUEST['idh'] . "/imgHabitacion/";					
+					$srow ='<div class="row">';				
+					while ($j <= 3){
+						$j++;
+						$nn = $nn + 1;
+						if($nn < $c)
+						{	
+							$srow .= '
+							<div class="col-md-3 col-sm-3">
+								<div class="price-block">
+									<div class="price-gd-top flexslider">
+									
+										<!-- <div class="flexslider"> -->
+											<ul class="slides">';															
+												if(empty(trim($rshabitacion[$nn]['namefile1'])) and (empty(trim($rshabitacion[$nn]['namefile1']))))
+												{
+													$srow .= '
+														<li>
+															<img class="img-fluid img-thumbnail" src="'. $ruta1 . $rshabitacion[$nn]['namedefault'].'">
+														</li>';
+												}else {
+													$srow .= '
+														<li>
+															<img class="img-fluid img-thumbnail" src="' . $ruta2.$rshabitacion[$nn]['namefile1'] .'">
+														</li>
+														<li>
+															<img class="img-fluid img-thumbnail" src="'. $ruta2.$rshabitacion[$nn]['namefile2'] . '">
+														</li>';										
+												}
+											$srow .= '
+											</ul>	
+										<!-- </div> -->
+										<h4>'.$rshabitacion[$nn]['nomtipo'].'</h4>
+									</div>
+									<div class="price-gd-bottom">
+									<!--
+										<span class="price-list">
+											<ul>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											</ul>
+										</span>
+										-->
+										<div class="price-selet">
+											<h3><span>$</span>'.$rshabitacion[$nn]['preciohabitacion'].'</h3>
+											<a href="admin/reservation.php"> Reservar ahora</a>
+										</div>
+										
+									</div>
+								</div>
+							</div>';
+						}
+					}
+					$srow.= '</div>';
+					return $srow;
+				}
+				$lsHabitacion = "";
+				$rshabitacion = tbOrganizacionData::getHabitacionHotel($_REQUEST['idh']);			
+				$nr = count($rshabitacion);			
+				$nn = -1;
+				echo "<h3>Habitaciones</h3>";
+				if (count($rshabitacion) > 0) 
+				{
+					$resto  = count($rshabitacion) % 4 ;
+					$entero =	intdiv(count($rshabitacion) , 4);					
+					$tb = "";
+					$fin= 0;				
+					$fin = ($resto == 0) ? $entero : $entero + 1;					
+					for ($i = 1; $i <= $fin; $i++) {
+						$tb.= createROWS($rshabitacion, $nr);					
+					}
+					echo $tb;
+				}
 			?>
-			<div class="row">
-				<div class="col-sm-8 col-md-8 col-lg-8">
-					<div class="card">						
-						<div class="card-body">
-							<h3>Nuestras habitaciones</h3><br>
-							<p class="text-justify">
-								ascensor, escalera electrica, Acceso con-camino-ST-2, Instalacion Electrica Sub, accesible en silla de ru, Acceso con-camino-WX-4
-							</p>
-							<!--							<button type="button" class="btn btn-primary w-25">View</button> -->
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 col-md-4 col-lg-4">
-					<?php if (count($images) > 0) : ?>
-						<div class="flexslider">
-							<ul class="slides">
-								<?php foreach ($images as $img) : ?>
-									<li>
-										<img class="img-fluid img-thumbnail" src="<?php echo 'admin/' . $img->folder . $img->src; ?>" alt="<?php echo $img->title; ?>">
-										<!--	<p class="flex-caption"><?php // echo trim($img->txtimagen); 
-																									?></p> -->
-									</li>
-								<?php endforeach; ?>
-							</ul>
-						</div>
-					<?php else : ?>
-					<?php endif; ?>
-				</div>
-			</div>
+			<!--                                                       -->
+			<!-- ***************************************************** -->
 			<!-- -->
-			<!-- fin de la Quinta fila -->
 			<div class="clearfix"></div>
 		</div>
 	</div>
