@@ -297,10 +297,15 @@ class tbOrganizacionData
     return $array1;
   }
   public static function getHabitacionHotel($idhotel)
-  {
+  {/*
     $ss = "select  a.idtipohab, a.preciohab, count(a.idtipohab) as Cantidad, b.nomtipo 
             from tbhabitacion a, tbtypohabitacion b
           where (a.idorg= $idhotel) and (a.idestadoh = 1) and (a.idtipohab = b.idtipohab)  group by idtipohab;";    
+          */
+    $ss = "select  a.idtipohab, a.preciohabitacion, a.namefile1, a.namefile2, b.namedefault, b.nomtipo 
+            from tbreltypohabitacionhotel a, tbtypohabitacion b
+          where (a.idorg= $idhotel) and (a.idtipohab = b.idtipohab) and(a.status=1)";
+          
     $cnx = dbcon();
     $rr = mysqli_query($cnx, $ss);
     $array1 = array();
