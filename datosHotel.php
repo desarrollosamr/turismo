@@ -328,7 +328,10 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 										<h4>'.$rshabitacion[$nn]['nomtipo'].'</h4>
 									</div>
 									<div class="price-gd-bottom">
-									<!--
+										<div>
+											<span>Cantidad:&nbsp;</span><input type="number" name="hab' .$nn . '" style="width:45px;margin-top:10px;"/>
+										</div>
+										<!--
 										<span class="price-list">
 											<ul>
 												<li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -340,8 +343,8 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 										</span>
 										-->
 										<div class="price-selet">
-											<h3><span>$</span>'.$rshabitacion[$nn]['preciohabitacion'].'</h3>
-											<a href="admin/reservation.php"> Reservar ahora</a>
+											<h3><span>$'.$rshabitacion[$nn]['preciohabitacion'].'</span></h3>
+											
 										</div>
 										
 									</div>
@@ -357,6 +360,8 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 				$nr = count($rshabitacion);			
 				$nn = -1;
 				echo "<h3>Habitaciones</h3>";
+				echo "<form action='admin/reservation.php' method='post' target='_blank'/>";
+				echo "<input type='hidden' name='idh' value=" . $_REQUEST['idh'] . ">" ;
 				if (count($rshabitacion) > 0) 
 				{
 					$resto  = count($rshabitacion) % 4 ;
@@ -373,6 +378,11 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 			<!--                                                       -->
 			<!-- ***************************************************** -->
 			<!-- -->
+			<div class="row">
+				<div class="col-md-12 col-sm-12">	
+					<button type="submit" name="reservar">Reservar</button></form>
+				</div>	
+			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
@@ -439,9 +449,6 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 					<h3 class="modal-title"><strong>Nueva</strong> especialidad</h3>
 				</div>
 				<div class="modal-body" style="background-color:#D9F7F0">
-
-
-
 					<div id="stodo" class="tab-pane fade in active ctx" style="background-color:red;">
 						<form method="post" class="colorlib-form">
 							<div class="row">
@@ -489,9 +496,6 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 							</div>
 						</form>
 					</div>
-
-
-
 					<form role="form" autocomplete="off" name="frm" id="frm" method="post" action="">
 						<div class="row">
 							<div class="col-xs-4 col-sm-4 col-md-4 thumbnail">

@@ -2,7 +2,7 @@
 function dbcon(){
   $host = 'localhost';
 	$usr = 'root';
-	$psw = '';
+	$psw = 'the_reborn';
 	$db = 'bdbasehotel1';
 	$conection = @mysqli_connect($host,$usr,$psw,$db);
 	//$cnx = @mysqli_connect($host,$usr,$psw,$db);
