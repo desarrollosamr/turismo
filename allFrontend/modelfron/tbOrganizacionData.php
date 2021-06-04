@@ -302,9 +302,9 @@ class tbOrganizacionData
             from tbhabitacion a, tbtypohabitacion b
           where (a.idorg= $idhotel) and (a.idestadoh = 1) and (a.idtipohab = b.idtipohab)  group by idtipohab;";    
           */
-    $ss = "select  a.idtipohab, a.preciohabitacion, a.namefile1, a.namefile2, b.namedefault, b.nomtipo 
+    $ss = "select  a.idtipoHab, a.preciohabitacion, a.namefile1, a.namefile2, b.namedefault, b.nomtipo 
             from tbreltypohabitacionhotel a, tbtypohabitacion b
-          where (a.idorg= $idhotel) and (a.idtipohab = b.idtipohab) and(a.status=1)";
+          where (a.idorg= $idhotel) and (a.idtipoHab = b.idtipoHab) and(a.status=1)";
           
     $cnx = dbcon();
     $rr = mysqli_query($cnx, $ss);

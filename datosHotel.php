@@ -329,7 +329,7 @@ $r = tbOrganizacionData::oneTbOrganizacion($_REQUEST['idh']);
 									</div>
 									<div class="price-gd-bottom">
 										<div>
-											<span>Cantidad:&nbsp;</span><input type="number" name="hab' .$nn . '" style="width:45px;margin-top:10px;"/>
+											<span>Cantidad:&nbsp;</span><input type="number" name="hab' .$rshabitacion[$nn]['idtipoHab'] . '" style="width:45px;margin-top:10px;"/>
 										</div>
 										<!--
 										<span class="price-list">
