@@ -12,7 +12,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         font-family: 'Lato', sans-serif;
         background: #fff;
     }
-    
     body a {
         text-decoration: none;
         transition: 0.5s all;
@@ -64,11 +63,70 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     .social-bnr-agileits {
         float: left;
         margin-left: 1em;
+       
     }
     /*--social-icons--*/
+    ul.social-menu {
+        display: flex;
+        list-style-type: none;
+    }
+
+    .social-menu li {
+        display: flex;
+        margin-top: 10px;
+    }
+     
+    .social-menu i {
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        font-size: 15px;
+        margin-right: 10px;
+        transition: all 0.2s ease-in-out;
+        display: flex;
+        justify-content: center;
+    }
     
+    .social-menu i:before {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+            font-weight: 400;
+    }
+    
+    .social-menu a {
+        text-decoration: none;
+    }
+
+    .fa-facebook {
+        background:#3b5998
+    } 
+    
+    .fa-linkedin {
+        background:#007bb6
+    }
+    
+    .fa-twitter {
+        background:#00aced
+    }
+    
+    .fa-instagram {
+        background:#3f729b
+    }
+    
+    .fa-youtube {
+        background:#c4302b
+    }
+    
+    .social-menu i:hover {
+        opacity: .7;
+        border-radius: 0;
+    }
+
     ul.social-icons3 {
         display: block;
+        list-style-type: none !important;
         padding: 0;
         margin-top: .55em;
     }
@@ -146,7 +204,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         -o-transition: 0.5s all;
         -moz-transition: 0.5s all;
         -ms-transition: 0.5s all;
-        text-transform: lowercase;
+        
         font-size: 15px;
     }
     
@@ -162,7 +220,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     .contact-bnr-w3-agile ul li i {
         color: #000000;
         font-size: 16px;
-        margin-right: 15px;
+        margin-right: 5px;
     }
     /*--search--*/
     
@@ -259,6 +317,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
     .w3_navigation {
         background: #0f2453;
+        padding-bottom: 10px;
     }
     
     .navbar-default {
@@ -281,7 +340,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     .navbar-default .navbar-nav>.active>a,
     .navbar-default .navbar-nav>.active>a:hover,
     .navbar-default .navbar-nav>.active>a:focus {
-        color: #fff;
+        color: rgb(0, 0, 0);
         background: none;
     }
     
@@ -292,44 +351,75 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
     .navbar-nav>li>a {
         margin: 0;
-        padding: 0 1.5em;
+        padding: 0 0.5em;
         text-transform: uppercase;
     }
-    
+
+    .navbar-default .navbar-nav>li>a.btn-urgent {
+        background-color:red;
+        color:white;
+    }
+
+
     .navbar-default .navbar-nav>li>a:hover {
-        color: #ffce14;
+        color: #1c1186;
     }
     
     .navbar-default .navbar-nav>li>a:focus {
-        color: #fff;
+        color: rgb(0, 0, 0);
         outline: none;
     }
     
     nav.navbar.navbar-default {
         background: none;
-        padding: .9em 0 .4em 0;
+        padding: 0;
     }
     
     .navbar-default .navbar-nav>.open>a,
     .navbar-default .navbar-nav>.open>a:hover,
     .navbar-default .navbar-nav>.open>a:focus {
-        color: #fff;
+        color: rgb(0, 0, 0);
         background: none;
     }
     
+    .btn-urgent {
+        float: left;
+        margin-left: 20%;
+    }
+    
+    .btn-urgent>a {
+        font-size: 14px;
+        font-weight: bolder;
+        color:rgb(255, 255, 255);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 5px 20px;
+        background-color: #ef0404;
+        border-radius: 24px;
+        margin: 10px;
+    }
+
+    .btn-urgent>a:hover {
+        color:rgb(252, 248, 5);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background-color: #ef0404;
+    }
+
+
     .navbar-default .navbar-nav>li>a {
-        color: #fff;
+        color: rgb(0, 0, 0);
     }
     
     .navbar-default .navbar-nav>.active.open>a:focus {
         background: #0a9dbd;
-        color: #fff;
+        color: rgb(0, 0, 0);
     }
     
     .navbar-default .navbar-brand,
     .navbar-default .navbar-brand:hover,
     .navbar-default .navbar-brand:focus {
-        color: #fff;
+        color: rgb(0, 0, 0);
     }
     
     .navbar-brand {
@@ -346,6 +436,179 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         color: #ffce14;
     }
     
+    .nav-link img {
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        margin: -8px 0;
+        float: left;
+        margin-right: 10px;
+    }
+    .navbar .navbar-brand {
+        padding-left: 0;
+        font-size: 20px;
+        padding-right: 50px;
+        color: white;
+    }
+    .navbar .navbar-brand b {
+        color: #33cabb;		
+    }
+    .navbar .form-inline {
+        display: inline-block;
+    }
+    .navbar a {
+        color: #888;
+        font-size: 15px;
+    }
+    .search-box {
+        position: relative;
+    }	
+    .search-box input {
+        padding-right: 35px;
+        border-color: #dfe3e8;
+        border-radius: 4px !important;
+        box-shadow: none
+    }
+    .search-box .input-group-text {
+        min-width: 35px;
+        border: none;
+        background: transparent;
+        position: absolute;
+        right: 0;
+        z-index: 9;
+        padding: 7px;
+        height: 100%;
+    }
+    .search-box i {
+        color: #a0a5b1;
+        font-size: 19px;
+    }
+    .navbar .sign-up-btn {
+        min-width: 110px;
+        max-height: 36px;
+    }
+    .navbar .dropdown-menu {
+        color: #999;
+        font-weight: normal;
+        border-radius: 1px;
+        border-color: #e5e5e5;
+        box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .navbar a, .navbar a:active {
+        color: #888;
+        padding: 8px 20px;
+        background: transparent;
+        line-height: normal;
+    }
+    .navbar .navbar-form {
+        border: none;
+    }
+    .navbar .action-form {
+        width: 280px;
+        padding: 20px;
+        left: auto;
+        right: 0;
+        font-size: 14px;
+    }
+    .navbar .action-form a {		
+        color: #33cabb;
+        padding: 0 !important;
+        font-size: 14px;
+    }
+    .navbar .action-form .hint-text {
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 13px;
+    }
+    .navbar .btn-primary, .navbar .btn-primary:active {
+        color: rgb(255, 255, 255);
+        border: none;
+    }	
+    .navbar .btn-primary:hover, .navbar .btn-primary:focus {		
+        color: #fff;
+        background: #31bfb1 !important;
+    }
+    .navbar .social-btn .btn, .navbar .social-btn .btn:hover {
+        color: #fff;
+        margin: 0;
+        padding: 0 !important;
+        font-size: 13px;
+        border: none;
+        transition: all 0.4s;
+        text-align: center;
+        line-height: 34px;
+        width: 47%;
+        text-decoration: none;
+    }
+    .navbar .social-btn .facebook-btn {
+        background: #507cc0;
+    }
+    .navbar .social-btn .facebook-btn:hover {
+        background: #4676bd;
+    }
+    .navbar .social-btn .twitter-btn {
+        background: #64ccf1;
+    }
+    .navbar .social-btn .twitter-btn:hover {
+        background: #4ec7ef;
+    }
+    .navbar .social-btn .btn i {
+        margin-right: 5px;
+        font-size: 16px;
+        position: relative;
+        top: 2px;
+    }
+    .or-seperator {
+        margin-top: 32px;
+        text-align: center;
+        border-top: 1px solid #e0e0e0;
+    }
+    .or-seperator b {
+        color: #666;
+        padding: 0 8px;
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+        text-align: center;
+        line-height: 26px;
+        background: #fff;
+        display: inline-block;
+        border: 1px solid #e0e0e0;
+        border-radius: 50%;
+        position: relative;
+        top: -15px;
+        z-index: 1;
+    }
+    .navbar .action-buttons .dropdown-toggle::after {
+        display: none;
+    }
+    .form-check-label input {
+        position: relative;
+        top: 1px;
+    }
+    @media (min-width: 1200px){
+        .form-inline .input-group {
+            width: 300px;
+            margin-left: 30px;
+        }
+    }
+
+    @media (max-width: 768px){
+        .navbar .dropdown-menu.action-form {
+            width: 100%;
+            padding: 10px 15px;
+            background: transparent;
+            border: none;
+        }
+        .navbar .form-inline {
+            display: block;
+        }
+        .navbar .input-group {
+            width: 100%;
+        }
+    }
+
+
     p.logo_w3l_agile_caption {
         text-transform: uppercase;
         letter-spacing: 5.7px;
@@ -355,7 +618,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         font-family: 'Lato', sans-serif;
         font-weight: 600;
     }
+
+    p.list_caption {
+        text-transform: uppercase;
+        letter-spacing: 5.7px;
+        font-size: 14px;
+        color: #ffffff;
+        font-family: 'Lato', sans-serif;
+        font-weight: 600;
+        padding-top: 15px;
+    }
     
+
     .agile_short_dropdown {
         border-radius: 0;
         background: #ffffff;
@@ -381,7 +655,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
     .menu__list {
         position: relative;
-        margin: 0.69em 0 0;
+        margin: 0;
     }
     
     .menu__item {
@@ -745,7 +1019,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     .callbacks_tabs {
         list-style: none;
         position: absolute;
-        top: 56%;
+        top: 69%;
         left: 46.5%;
         padding: 0;
         margin: 0;
@@ -790,7 +1064,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
     .thim-click-to-bottom {
         position: absolute;
-        bottom: 12%;
+        bottom: 8%;
         left: 49%;
         width: 40px;
         height: 40px;
@@ -1462,7 +1736,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     }
     
     .price-gd-top h4 {
-        font-size: 1.5em;
+        font-size: 1.2em;
         color: #fff;
         padding: 0.2em 1em;
         background: #0f2453;
@@ -1529,6 +1803,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         -webkit-transition: 0.5s all;
         -moz-transition: 0.5s all;
         -o-transition: 0.5s all;
+        padding: 5px;
     }
     
     .price-block:hover,
@@ -1729,14 +2004,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     /*-- contact --*/
     
     section.contact-w3ls {
-        background: url(../images/contact.jpg) no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        background-size: 100% 100%;
-        -webkit-background-size: 100% 100%;
-        -moz-background-size: 100% 100%;
-        -o-background-size: 100% 100%;
-        -ms-background-size: 100% 100%;
+        background-color: antiquewhite;
     }
     
     section.contact-w3ls p.contact-agile1 {
@@ -1761,7 +2029,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
     section.contact-w3ls .contact-agileits,
     .contact-w3-agile1 {
-        background-color: rgba(0, 0, 0, 0.55);
+        background-color: #937a70;
         padding: 20px 35px;
     }
     
@@ -2634,10 +2902,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
     @media(max-width:767px) {
         .navbar-default .navbar-toggle .icon-bar {
-            background-color: #fff;
+            background-color: rgb(0, 0, 0);
         }
         .navbar-default .navbar-toggle {
-            border-color: #ffce14;
+            border-color: #11136d;
             margin-top: 3px!important;
         }
         .navbar-default .navbar-toggle:hover,
@@ -2667,7 +2935,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             background-color: #1f7f9a;
         }
         .navbar-default .navbar-nav .open .dropdown-menu>li>a {
-            color: #fff;
+            color: rgb(0, 0, 0);
         }
         .navbar-nav .open .dropdown-menu>li>a,
         .navbar-nav .open .dropdown-menu .dropdown-header {
@@ -3729,7 +3997,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         margin-top: 28px;
         padding: 12px !important;
         font-size: 14px;
-        color: #000;
+        color: rgb(255, 255, 255);
     }
     
     #colorlib-reservation {
@@ -3803,3 +4071,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         background: #2C2E3E;
         padding: 30px 60px;
     }
+
+    .control-label {
+        color: white;
+    }
+    input {
+	  width: 100%;
+	  display: block;
+	  border: none;
+	  border-bottom: 1px solid #999;
+	  padding: 6px 30px;
+	  font-family: Poppins;
+	  box-sizing: border-box; 
+	}

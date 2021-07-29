@@ -1,12 +1,10 @@
-﻿<?php  
-session_start();  
-if(!isset($_SESSION["user"]))
-{
- header("location:index.php");
-}
-?> 
+﻿<?php
+include_once('D:\xampp_new\htdocs\turismo\core\controller\Database.php');
+include_once('D:\xampp_new\htdocs\turismo\core\controller\Executor.php');
+$con = Database::getCon();
+?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,7 +59,6 @@ if(!isset($_SESSION["user"]))
           </div>
         </div> <!-- /. ROW  -->                
 				<?php
-          include ('db.php');
           $sql = "select * from roombook";
           $re = mysqli_query($con,$sql);
           $c =0;

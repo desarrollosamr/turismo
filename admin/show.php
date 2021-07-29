@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Detalles de la clave del libro
-</title>
+		</title>
 		
 		<style>
 		/* reset */
@@ -162,8 +162,9 @@ tr:hover .cut { opacity: 1; }
 	
 	<?php
 	ob_start();	
-	include ('db.php');
-
+	include_once('D:\xampp_new\htdocs\turismo\core\controller\Database.php');
+	include_once('D:\xampp_new\htdocs\turismo\core\controller\Executor.php');
+	$con = Database::getCon();
 	$pid = $_GET['sid'];
 	
 	
@@ -193,8 +194,7 @@ tr:hover .cut { opacity: 1; }
 									
 	?>
 		<header>
-			<h1>Información de Huésped
-</h1>
+			<h1>Información de Huésped</h1>
 			<address >
 				<p> HOTEL Amenecer</p>
 				<p>New Kalmunani Road,<br>Batusai,<br>Sri Lanka.</p>

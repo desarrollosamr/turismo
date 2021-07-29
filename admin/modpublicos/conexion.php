@@ -8,9 +8,9 @@
   define("BD", "bdTienda");*/
 class Conect_MySql {
     //var $bdw = "bd_neptuno";	
-    var $obj = array("dbname" => BDW,
+    var $obj = array("dbname" => "bdbasehotel1",
 					 "dbuser" => "root",
-					 "dbpwd"  => "",
+					 "dbpwd"  => "the_reborn",
 					 "dbhost" => "localhost");
     var $q_id = "";
     var $ExeBit = "";

@@ -206,7 +206,7 @@ html[xmlns] .flexslider .slides {
 }
 .flex-control-nav li {
   margin: 0 6px;
-  display: inline-block;
+  display: none;
   zoom: 1;
   *display: inline;
 }

@@ -1,0 +1,19 @@
+gramtourwebapp
+idcliente
+738350480712-qemgp8j2scrnuk2pikodcci0j54nlrph.apps.googleusercontent.com
+secreto
+9Dk2d0qqTs87Fq63pzrZWeLH
+
+gramtourdesktop
+idcliente
+738350480712-67n7g2296v4ba9af935u706alod6q3g1.apps.googleusercontent.com
+secreto
+EGB3dtRJhxVroBTL-D5g1MJM
+
+Dominio clave
+t4eDcp#WJM
+
+
+/home/u669320997/domains/desarrollosamr.com/public_html/gramtour/core/modules/general/view/modGeneral/modbusca1.php
+
+/home/u669320997/domains/desarrollosamr.com/public_html/gramtour/core/modules/general/view

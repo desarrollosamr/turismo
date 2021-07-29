@@ -1,4 +1,5 @@
-    <!-- Menu derecha(Estado, Boletines, , Reserva...) -->
+<div style="float:left;">
+<!-- Menu derecha(Estado, Boletines, , Reserva...) -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
@@ -23,3 +24,4 @@
             </ul>
         </div>
     </nav> <!-- fin Menu derecha(Estado, Boletines, , Reserva...) -->
+</div>

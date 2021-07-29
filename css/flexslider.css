@@ -40,6 +40,7 @@ html[xmlns] .slides {display: block;}
 	border: 0px;
 	position: relative;
 	zoom: 1;
+    background-color: white;
 }
 .flex-viewport {max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; transition: all 1s ease;}
 .loading .flex-viewport {max-height: 300px;}
@@ -76,7 +77,7 @@ html[xmlns] .slides {display: block;}
 .flex-direction-nav .flex-disabled {opacity: .3!important; filter:alpha(opacity=30); cursor: default;}
 /* Control Nav */
 .flex-control-nav {
-    display: block;
+    display: none;
     position: absolute;
     right: 7%;
     margin-left: 0px;
